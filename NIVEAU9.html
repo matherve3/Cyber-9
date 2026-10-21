@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cyber CI · Niveau 9 · Omniscient · 100 Défis</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:#0a0e1a;color:#e2e8f0;line-height:1.65}
+header{background:#111827;padding:14px 20px;display:flex;justify-content:space-between;border-bottom:2px solid #dc2626;flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:50}
+header h1{color:#dc2626;font-size:1rem;cursor:pointer}
+.stats{color:#94a3b8;font-size:0.85rem}
+.stats b{color:#dc2626}
+main{max-width:980px;margin:0 auto;padding:16px}
+.card{background:#111827;border-radius:12px;padding:20px;margin-bottom:16px;border:1px solid #263243}
+h2{color:#dc2626;margin-bottom:10px;font-size:1.3rem}
+h3{color:#22c55e;margin:14px 0 8px;font-size:1rem}
+h4{color:#fca5a5;margin:10px 0 6px;font-size:0.95rem}
+p{margin:8px 0}
+ul,ol{padding-left:22px;margin:8px 0}
+li{margin-bottom:6px}
+code{background:#1f2937;padding:2px 6px;border-radius:4px;color:#dc2626;font-size:0.9em}
+pre{background:#050914;padding:12px;border-radius:8px;overflow-x:auto;margin:10px 0;border-left:3px solid #dc2626;font-size:0.85em;line-height:1.5}
+pre code{background:none;padding:0;color:#e2e8f0}
+table{width:100%;border-collapse:collapse;margin:10px 0;font-size:0.9em}
+th,td{border:1px solid #1f2937;padding:8px;text-align:left;vertical-align:top}
+th{background:#1f2937;color:#dc2626}
+a{color:#dc2626}
+.meta{display:flex;gap:12px;font-size:0.8rem;color:#94a3b8;margin-bottom:8px;flex-wrap:wrap}
+.intro{background:#7f1d1d;padding:14px;border-radius:10px;margin:12px 0;border-left:4px solid #dc2626}
+.intro h3{color:#fca5a5;margin-top:0}
+.analogy{background:#0e7490;padding:12px;border-radius:10px;margin:12px 0;border-left:4px solid #22d3ee;font-style:italic}
+.section{background:#0f172a;padding:16px;border-radius:10px;margin:14px 0;border-left:4px solid #fca5a5}
+.section h3{color:#fca5a5;margin-top:0;font-size:1.05rem}
+.why{background:#4c1d95;padding:12px;border-radius:8px;margin:12px 0;border-left:3px solid #a78bfa}
+.bank{background:#14532d;padding:12px;border-radius:8px;margin:12px 0;border-left:3px solid #4ade80}
+.glo{background:#1e293b;padding:12px;border-radius:8px;margin:12px 0;border-left:3px solid #94a3b8}
+.glo b{color:#dc2626}
+.pr{background:#052e16;padding:14px;border-radius:10px;margin:14px 0;border-left:4px solid #22c55e}
+.pr h3{color:#86efac;margin-top:0}
+.er{background:#7f1d1d;padding:12px;border-radius:8px;margin:12px 0;border-left:3px solid #ef4444}
+.df{background:#78350f;padding:12px;border-radius:8px;margin:12px 0;border-left:3px solid #fbbf24}
+.car{background:#1e1b4b;padding:14px;border-radius:10px;margin:12px 0;border-left:4px solid #a78bfa}
+.quiz{background:#1f2937;padding:14px;border-radius:10px;margin-top:14px}
+.q{margin-bottom:14px}
+.q label{display:block;padding:9px 12px;margin:5px 0;background:#111827;border-radius:7px;cursor:pointer}
+.q label:hover{background:#334155}
+.q input{margin-right:10px}
+.ok{background:#14532d!important;border-left:4px solid #22c55e!important}
+.ko{background:#7f1d1d!important;border-left:4px solid #ef4444!important}
+.exp{background:#050914;padding:10px;border-radius:6px;margin-top:8px;font-size:0.85em;color:#cbd5e1;border-left:3px solid #dc2626;display:none}
+.nav{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
+button{background:#dc2626;color:#fff;border:none;padding:10px 18px;border-radius:8px;font-weight:700;cursor:pointer;font-size:0.9rem}
+button:hover{background:#ef4444}
+button.sec{background:#1f2937;color:#e2e8f0}
+button.gold{background:#fbbf24;color:#0a0e1a}
+button.exam{background:#dc2626;color:#fff}
+.res{margin-top:12px;padding:12px;border-radius:8px;font-weight:700;text-align:center}
+.res.g{background:#14532d;color:#86efac}
+.res.r{background:#7f1d1d;color:#fca5a5}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:8px;margin-top:10px}
+.btn{background:#1f2937;padding:10px;border-radius:8px;cursor:pointer;border:2px solid transparent}
+.btn:hover{border-color:#dc2626}
+.btn.done{border-color:#22c55e;background:#14532d}
+.btn .n{font-weight:800;color:#dc2626;display:block;font-size:0.75rem}
+.btn.done .n{color:#22c55e}
+.btn .ti{display:block;font-size:0.78rem;color:#94a3b8;margin-top:2px}
+.stat{background:#1e293b;padding:16px;border-radius:12px;border-left:4px solid #dc2626;text-align:center}
+.stat .big{font-size:2em;font-weight:800;color:#dc2626;display:block}
+.stat .lbl{font-size:0.85em;color:#94a3b8}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0}
+.cert{background:#7f1d1d;padding:14px;border-radius:10px;margin:10px 0;border-left:4px solid #dc2626}
+.cert h4{color:#fca5a5;margin:0 0 6px}
+.cert.done{background:#14532d;border-left-color:#22c55e}
+.cert.done h4{color:#86efac}
+.badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:0.7em;font-weight:700;margin-left:6px}
+.badge.free{background:#14532d;color:#86efac}
+.badge.partial{background:#78350f;color:#fde68a}
+.badge.paid{background:#7f1d1d;color:#fca5a5}
+.job{background:#1f2937;padding:12px;border-radius:10px;border-left:4px solid #22c55e;margin-bottom:10px}
+.job h4{margin:0 0 4px;color:#86efac}
+.exam-card{background:linear-gradient(135deg,#7f1d1d 0%,#1e1b4b 100%);padding:16px;border-radius:12px;margin:12px 0;border-left:4px solid #dc2626}
+.exam-card h4{color:#fca5a5;margin:0 0 8px;font-size:1.05rem}
+.exam-card.locked{opacity:0.6;border-left-color:#475569;background:#1e293b}
+.exam-card.passed{background:linear-gradient(135deg,#14532d 0%,#052e16 100%);border-left-color:#22c55e}
+.exam-card.passed h4{color:#86efac}
+.exam-badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:0.72em;font-weight:800;margin-bottom:6px}
+.exam-badge.locked{background:#334155;color:#94a3b8}
+.exam-badge.ready{background:#b91c1c;color:#fff}
+.exam-badge.passed{background:#22c55e;color:#052e16}
+.qcount{color:#cbd5e1;font-size:0.85em;margin:6px 0}
+.level-tag{display:inline-block;padding:3px 10px;border-radius:12px;font-size:0.72em;font-weight:800;margin-left:8px}
+.level-tag.l9{background:#7f1d1d;color:#fca5a5}
+.hero{background:linear-gradient(135deg,#7f1d1d 0%,#1e1b4b 100%);border-left:4px solid #dc2626;padding:24px;border-radius:12px;margin-bottom:16px}
+.hero h2{color:#fca5a5;font-size:1.5rem;margin-bottom:8px}
+.hero p{color:#fecaca;font-size:0.95em}
+footer{text-align:center;padding:20px;color:#94a3b8;font-size:0.78em}
+</style>
+</head>
+<body>
+<header>
+  <h1 onclick="render()">Cyber CI · Niveau 9</h1>
+  <div class="stats" id="hs"></div>
+</header>
+<main id="app"></main>
+<footer>Etudiant L2 UVCI - Objectif Banque CI - Niveau 9 Omniscient</footer>
+
+<script>
+// ============================================================
+// NIVEAU 9 : 100 DEFIS (801-900) - OMNISCIENT / ARCHITECTE UNIVERS
+// Modules :
+// - Module 41 : Lois fondamentales de l'information (801-820)
+// - Module 42 : Cosmologie numérique & simulation (821-840)
+// - Module 43 : Théorie de l'information quantique (841-860)
+// - Module 44 : Architecte de l'univers numérique (861-880)
+// - Module 45 : Omniscience & au-delà (881-900)
+// ============================================================
+var D = [
+/* ---------- MODULE 41 : LOIS FONDAMENTALES DE L'INFORMATION (801-820) ---------- */
+{id:801,t:"Lois fondamentales de l'information",d:55,
+intro:"L'information n'est pas juste des données : c'est une propriété fondamentale de l'univers. Les lois de l'information (Shannon, Landauer, Bekenstein) définissent ses limites physiques. Comprendre ces lois permet de concevoir des systèmes de sécurité au-delà des limites actuelles.",
+analogy:"Les lois de l'information sont comme les lois de la physique. Elles définissent ce qui est possible et ce qui ne l'est pas.",
+sections:[
+{titre:"Loi de Shannon",contenu:"<p>Claude Shannon (1948) : l'information est mesurée en bits. Entropie H = -Σ p log p. Limite de compression. Canal bruité = capacité max.</p>"},
+{titre:"Loi de Landauer",contenu:"<p>Rolf Landauer (1961) : effacer 1 bit d'information dissipe au minimum kT ln(2) énergie. Limite physique du calcul. Conséquence : l'informatique a une limite énergétique.</p>"},
+{titre:"Loi de Bekenstein",contenu:"<p>Jacob Bekenstein (1973) : l'information maximale dans une région de l'espace est proportionnelle à sa surface, pas son volume. Limite holographique.</p>"},
+{titre:"Loi de Moore",contenu:"<p>Gordon Moore (1965) : le nombre de transistors double tous les 2 ans. Aujourd'hui ralenti (limites physiques).</p>"},
+{titre:"Implications cybersécurité",contenu:"<ul><li><b>Chiffrement</b> : limite de Shannon = clé parfaite.</li><li><b>Stockage</b> : limite de Bekenstein.</li><li><b>Calcul</b> : limite de Landauer.</li><li><b>Quantum</b> : nouvelle physique.</li></ul>"}
+],
+why:"Comprendre les lois = concevoir des systèmes au-delà des limites.",
+bank:"Une banque doit anticiper les limites physiques (chiffrement, stockage).",
+glo:"<b>Shannon</b> : information. <b>Landauer</b> : énergie. <b>Bekenstein</b> : holographie.",
+pr:["Étudier Shannon","Landauer","Bekenstein","Moore"],
+er:"Ignorer les lois = systèmes limités.",
+df:"Analyser les implications des lois de l'information.",
+proj:"Publier une analyse sur GitHub.",
+q:[{q:"Shannon :",a:["Information","Rien","Rien","Rien"],c:0,e:"Shannon = information."},{q:"Landauer :",a:["Énergie","Rien","Rien","Rien"],c:0,e:"Landauer = énergie."}]},
+
+{id:802,t:"Entropie et information",d:55,
+intro:"L'entropie mesure le désordre, l'incertitude. En information, l'entropie de Shannon quantifie le contenu informationnel. En cryptographie, l'entropie des clés est critique.",
+analogy:"Un jeu de cartes mélangé a plus d'entropie qu'un jeu ordonné.",
+sections:[
+{titre:"Entropie de Shannon",contenu:"<p>H = -Σ p log₂ p. Maximum = log₂(N). Une clé de 256 bits a une entropie de 256 bits.</p>"},
+{titre:"Entropie en crypto",contenu:"<ul><li><b>Clé</b> : entropie = taille.</li><li><b>MDP</b> : entropie dépend de la complexité.</li><li><b>Random</b> : source d'entropie.</li><li><b>Quantum</b> : vraie random.</li></ul>"},
+{titre:"Entropie en sécurité",contenu:"<ul><li><b>Détection</b> : anomalies = faible entropie.</li><li><b>Chiffrement</b> : sortie = haute entropie.</li><li><b>Compression</b> : réduit la redondance.</li></ul>"},
+{titre:"Sources",contenu:"<ul><li><b>/dev/random</b> : Linux.</li><li><b>QRNG</b> : quantum.</li><li><b>HSM</b> : hardware.</li><li><b>CPU RDRAND</b> : Intel.</li></ul>"}
+],
+why:"L'entropie = qualité du secret.",
+bank:"Une banque doit utiliser des sources d'entropie fortes.",
+glo:"<b>Entropie</b> : désordre. <b>QRNG</b> : quantum random.",
+pr:["Étudier Shannon","Sources","Applications","Test"],
+er:"Faible entropie = secret cassable.",
+df:"Concevoir un générateur d'entropie.",
+proj:"Publier le projet sur GitHub.",
+q:[{q:"Entropie :",a:["Désordre","Rien","Rien","Rien"],c:0,e:"Entropie = désordre."},{q:"QRNG :",a:["Quantum random","Rien","Rien","Rien"],c:0,e:"QRNG = quantum random."}]},
+
+{id:803,t:"Théorie de l'information quantique",d:55,
+intro:"L'information quantique = information encodée dans des états quantiques (qubits). Propriétés : superposition, intrication, non-clonage. La cryptographie quantique en découle.",
+analogy:"Un qubit peut être 0 ET 1 à la fois. Une porte vers de nouveaux paradigmes.",
+sections:[
+{titre:"Qubit",contenu:"<p>Un qubit = α|0> + β|1>, avec |α|² + |β|² = 1. Superposition, mesure probabiliste.</p>"},
+{titre:"Intrication",contenu:"<p>Deux qubits intriqués : l'état de l'un dépend de l'autre instantanément (non-localité). Base du QKD.</p>"},
+{titre:"Non-clonage",contenu:"<p>Impossible de copier un qubit inconnu. Base de la sécurité quantique.</p>"},
+{titre:"Applications",contenu:"<ul><li><b>QKD</b> : distribution de clés.</li><li><b>Quantum computing</b> : calcul.</li><li><b>Quantum sensing</b> : mesure.</li><li><b>Post-quantum</b> : crypto.</li></ul>"}
+],
+why:"L'information quantique = nouveau paradigme de sécurité.",
+bank:"Une banque doit anticiper la cryptographie quantique.",
+glo:"<b>Qubit</b> : bit quantique. <b>Intrication</b> : non-localité.",
+pr:["Étudier qubit","Intrication","Non-clonage","Applications"],
+er:"Qubit sans décohérence = erreur.",
+df:"Concevoir un système quantique de sécurité.",
+proj:"Publier le projet sur GitHub.",
+q:[{q:"Qubit :",a:["Bit quantique","Rien","Rien","Rien"],c:0,e:"Qubit = bit quantique."},{q:"Intrication :",a:["Non-localité","Rien","Rien","Rien"],c:0,e:"Intrication = non-localité."}]},
+
+{id:804,t:"Cryptographie quantique (QKD)",d:55,
+intro:"La QKD (Quantum Key Distribution) permet de distribuer des clés de manière théoriquement inviolable. Toute tentative d'interception est détectée. BB84, E91 sont les protocoles.",
+analogy:"Un canal de communication qui se détruit si quelqu'un écoute.",
+sections:[
+{titre:"Protocoles",contenu:"<ul><li><b>BB84</b> : Bennett & Brassard (1984).</li><li><b>E91</b> : Ekert (1991). Intrication.</li><li><b>MDI-QKD</b> : measurement-device-independent.</li><li><b>TF-QKD</b> : twin-field.</li></ul>"},
+{titre:"Principes",contenu:"<ul><li><b>Non-clonage</b> : impossible de copier.</li><li><b>Mesure</b> : détruit l'état.</li><li><b>Détection</b> : interception visible.</li><li><b>Clé</b> : sécurisée par la physique.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Banques</b> : liens critiques.</li><li><b>Gouvernements</b> : secrets.</li><li><b>Data centers</b> : interconnexions.</li><li><b>Satellites</b> : Micius (Chine).</li></ul>"},
+{titre:"Limites",contenu:"<ul><li><b>Distance</b> : ~200 km (fibre).</li><li><b>Coût</b> : élevé.</li><li><b>Infrastructure</b> : dédiée.</li><li><b>Déploiement</b> : limité.</li></ul>"}
+],
+why:"QKD = sécurité physique, non cryptographique.",
+bank:"Une banque peut utiliser QKD pour ses liens critiques.",
+glo:"<b>QKD</b> : Quantum Key Distribution. <b>BB84</b> : protocole.",
+pr:["Étudier BB84","E91","MDI","Applications"],
+er:"QKD sans infrastructure = échec.",
+df:"Concevoir un déploiement QKD.",
+proj:"Publier le projet sur GitHub.",
+q:[{q:"QKD :",a:["Quantum Key Distribution","Rien","Rien","Rien"],c:0,e:"QKD = Quantum Key Distribution."},{q:"BB84 :",a:["Protocole QKD","Rien","Rien","Rien"],c:0,e:"BB84 = protocole QKD."}]},
+
+{id:805,t:"Ordinateur quantique",d:55,
+intro:"L'ordinateur quantique utilise les qubits pour résoudre certains problèmes exponentiellement plus vite. Shor (factorisation) casse RSA/ECC. Grover (recherche) accélère le brute-force.",
+analogy:"Un ordinateur qui calcule en parallèle sur tous les états possibles.",
+sections:[
+{titre:"Algorithmes",contenu:"<ul><li><b>Shor</b> : factorisation (casse RSA).</li><li><b>Grover</b> : recherche (brute-force).</li><li><b>QFT</b> : Fourier quantique.</li><li><b>QAOA</b> : optimisation.</li><li><b>VQE</b> : chimie.</li></ul>"},
+{titre:"Technologies",contenu:"<ul><li><b>Supraconducteurs</b> : IBM, Google.</li><li><b>Ions piégés</b> : IonQ.</li><li><b>Photons</b> : PsiQuantum.</li><li><b>Atomes neutres</b> : Pasqal.</li><li><b>Topologiques</b> : Microsoft.</li></ul>"},
+{titre:"Impact cybersécurité",contenu:"<ul><li><b>RSA/ECC</b> : cassés à terme.</li><li><b>PQC</b> : migration.</li><li><b>Brute-force</b> : accéléré.</li><li><b>Stockage</b> : quantique.</li></ul>"},
+{titre:"Limites actuelles",contenu:"<ul><li><b>Décohérence</b> : erreurs.</li><li><b>Correction</b> : nécessaire.</li><li><b>Qubits</b> : ~1000 actuels.</li><li><b>Utiles</b> : millions requis.</li></ul>"}
+],
+why:"Ordinateur quantique = menace + opportunité.",
+bank:"Une banque doit anticiper la menace quantique (PQC).",
+glo:"<b>Shor</b> : factorisation. <b>Grover</b> : recherche.",
+pr:["Étudier Shor","Grover","Technologies","Impact"],
+er:"Ignorer le quantique = obsolète.",
+df:"Concevoir une stratégie post-quantique.",
+proj:"Publier la stratégie sur GitHub.",
+q:[{q:"Shor :",a:["Factorisation","Rien","Rien","Rien"],c:0,e:"Shor = factorisation."},{q:"Grover :",a:["Recherche","Rien","Rien","Rien"],c:0,e:"Grover = recherche."}]},
+
+{id:806,t:"Post-quantique (PQC)",d:55,
+intro:"La cryptographie post-quantique (PQC) résiste aux ordinateurs quantiques. Le NIST a standardisé ML-KEM (Kyber), ML-DSA (Dilithium), SLH-DSA (SPHINCS+) en 2024. La migration est urgente.",
+analogy:"Un cadenas qui résiste à tous les cambrioleurs, même quantiques.",
+sections:[
+{titre:"Algorithmes NIST",contenu:"<ul><li><b>ML-KEM</b> (Kyber) : KEM.</li><li><b>ML-DSA</b> (Dilithium) : signature.</li><li><b>SLH-DSA</b> (SPHINCS+) : signature hash.</li><li><b>FALCON</b> : signature.</li><li><b>HQC</b> : KEM (backup).</li></ul>"},
+{titre:"Migration",contenu:"<ul><li><b>Inventaire</b> : crypto actuelle.</li><li><b>Priorisation</b> : données sensibles.</li><li><b>Pilote</b> : hybride.</li><li><b>Déploiement</b> : 2025-2030.</li><li><b>Conformité</b> : ANSSI, NIST.</li></ul>"},
+{titre:"Hybride",contenu:"<p>Combiner classique + PQC. Si l'un casse, l'autre protège. Exemple : X25519 + Kyber.</p>"},
+{titre:"Défis",contenu:"<ul><li><b>Taille</b> : clés plus grandes.</li><li><b>Performance</b> : plus lent.</li><li><b>Standard</b> : récent.</li><li><b>Implémentation</b> : complexe.</li></ul>"}
+],
+why:"PQC = migration urgente, enjeu stratégique.",
+bank:"Une banque doit migrer vers PQC (BCEAO, ANSSI).",
+glo:"<b>PQC</b> : Post-Quantum Cryptography. <b>ML-KEM</b> : Kyber.",
+pr:["Étudier NIST","Migration","Hybride","Déploiement"],
+er:"Attendre = trop tard.",
+df:"Concevoir un plan de migration PQC.",
+proj:"Publier le plan sur GitHub.",
+q:[{q:"ML-KEM :",a:["Kyber","Rien","Rien","Rien"],c:0,e:"ML-KEM = Kyber."},{q:"PQC :",a:["Post-Quantum","Rien","Rien","Rien"],c:0,e:"PQC = Post-Quantum Cryptography."}]},
+
+{id:807,t:"Intrication et sécurité",d:55,
+intro:"L'intrication quantique = corrélation non-locale entre qubits. Elle est utilisée pour la QKD, la téléportation quantique, et le calcul quantique. La sécurité repose sur la physique.",
+analogy:"Deux particules jumelles qui réagissent instantanément, peu importe la distance.",
+sections:[
+{titre:"Applications",contenu:"<ul><li><b>QKD</b> : clés sécurisées.</li><li><b>Téléportation</b> : état quantique.</li><li><b>Calcul</b> : qubits.</li><li><b>Réseau</b> : internet quantique.</li></ul>"},
+{titre:"Principes",contenu:"<ul><li><b>Non-localité</b> : instantané.</li><li><b>Non-clonage</b> : impossible copier.</li><li><b>Mesure</b> : détruit l'état.</li><li><b>Décohérence</b> : fragilité.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Distance</b> : fibre.</li><li><b>Répéteurs</b> : quantiques.</li><li><b>Coût</b> : élevé.</li><li><b>Déploiement</b> : limité.</li></ul>"},
+{titre:"Futur",contenu:"<ul><li><b>Internet quantique</b> : mondial.</li><li><b>Répéteurs</b> : longue distance.</li><li><b>Satellites</b> : Micius.</li><li><b>Applications</b> : nombreuses.</li></ul>"}
+],
+why:"Intrication = nouvelle frontière sécurité.",
+bank:"Une banque peut utiliser l'intrication pour ses liens critiques.",
+glo:"<b>Intrication</b> : non-localité.",
+pr:["Étudier principes","Applications","Défis","Futur"],
+er:"Intrication sans décohérence = erreur.",
+df:"Concevoir un réseau d'intrication.",
+proj:"Publier le projet sur GitHub.",
+q:[{q:"Intrication :",a:["Non-localité","Rien","Rien","Rien"],c:0,e:"Intrication = non-localité."},{q:"Téléportation :",a:["État quantique","Rien","Rien","Rien"],c:0,e:"Téléportation = état quantique."}]},
+
+{id:808,t:"Limites physiques du calcul",d:50,
+intro:"Le calcul a des limites physiques : vitesse de la lumière, énergie de Landauer, décohérence quantique, chaleur. Concevoir des systèmes sécurisés au-delà de ces limites est un défi.",
+analogy:"Un ordinateur ne peut pas aller plus vite que la lumière. Il y a des limites absolues.",
+sections:[
+{titre:"Limites",contenu:"<ul><li><b>Vitesse</b> : lumière.</li><li><b>Énergie</b> : Landauer.</li><li><b>Chaleur</b> : dissipation.</li><li><b>Décohérence</b> : quantique.</li><li><b>Matière</b> : atomes.</li></ul>"},
+{titre:"Conséquences",contenu:"<ul><li><b>Moore</b> : ralenti.</li><li><b>Crypto</b> : clés plus longues.</li><li><b>Stockage</b> : limites.</li><li><b>Vitesse</b> : limitée.</li></ul>"},
+{titre:"Solutions",contenu:"<ul><li><b>Quantique</b> : nouveau paradigme.</li><li><b>Neuromorphique</b> : cerveau.</li><li><b>Optique</b> : photons.</li><li><b>ADN</b> : stockage.</li></ul>"},
+{titre:"Futur",contenu:"<ul><li><b>Post-silicium</b> : nouveaux matériaux.</li><li><b>Quantique</b> : mature.</li><li><b>Biologique</b> : ADN.</li><li><b>Cosmique</b> : échelle.</li></ul>"}
+],
+why:"Les limites physiques = défis de conception.",
+bank:"Une banque doit anticiper les limites (stockage, crypto).",
+glo:"<b>Landauer</b> : énergie. <b>Décohérence</b> : quantique.",
+pr:["Étudier limites","Conséquences","Solutions","Futur"],
+er:"Ignorer les limites = systèmes non viables.",
+df:"Analyser les limites physiques du calcul.",
+proj:"Publier l'analyse sur GitHub.",
+q:[{q:"Landauer :",a:["Énergie","Rien","Rien","Rien"],c:0,e:"Landauer = énergie."},{q:"Moore :",a:["Ralenti","Rien","Rien","Rien"],c:0,e:"Moore = ralenti."}]},
+
+{id:809,t:"Information et conscience",d:55,
+intro:"Le lien entre information et conscience est un mystère : la conscience émerge-t-elle de l'information ? L'univers est-il fait d'information ? Ces questions sont philosophiques et physiques.",
+analogy:"L'univers serait fait d'information, comme un grand programme.",
+sections:[
+{titre:"Théories",contenu:"<ul><li><b>It from bit</b> : Wheeler (1989).</li><li><b>IIT</b> : Integrated Information Theory.</li><li><b>Global workspace</b> : Baars.</li><li><b>Quantum consciousness</b> : Penrose.</li><li><b>Holographic</b> : 't Hooft.</li></ul>"},
+{titre:"Enjeux",contenu:"<ul><li><b>Conscience</b> : émergence.</li><li><b>Information</b> : fondamentale.</li><li><b>Sécurité</b> : critique.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>IA</b> : conscience.</li><li><b>BCI</b> : interface.</li><li><b>Quantum</b> : information.</li><li><b>Cosmologie</b> : univers.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Définition</b> : conscience.</li><li><b>Mesure</b> : IIT.</li><li><b>Théorie</b> : unifiée.</li><li><b>Expérience</b> : difficile.</li></ul>"}
+],
+why:"Information et conscience = question ultime.",
+bank:"Une banque doit suivre les recherches sur la conscience (IA).",
+glo:"<b>It from bit</b> : Wheeler. <b>IIT</b> : Integrated Information.",
+pr:["Étudier théories","Enjeux","Applications","Défis"],
+er:"Sans définition = confusion.",
+df:"Rédiger une note sur information et conscience.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"It from bit :",a:["Wheeler","Rien","Rien","Rien"],c:0,e:"It from bit = Wheeler."},{q:"IIT :",a:["Integrated Information","Rien","Rien","Rien"],c:0,e:"IIT = Integrated Information Theory."}]},
+
+{id:810,t:"Projet : lois de l'information",d:300,
+intro:"Ce projet final du Module 41 consiste à concevoir une stratégie de sécurité basée sur les lois fondamentales de l'information : entropie, quantique, PQC, limites physiques.",
+analogy:"Construire une forteresse sur des lois physiques immuables.",
+sections:[
+{titre:"Idées",contenu:"<ul><li><b>Entropie</b> : sources.</li><li><b>Quantique</b> : QKD.</li><li><b>PQC</b> : migration.</li><li><b>Limites</b> : anticipation.</li><li><b>Conscience</b> : IA.</li></ul>"},
+{titre:"Livrables",contenu:"<ol><li><b>Vision</b> : lois information.</li><li><b>Entropie</b> : stratégie.</li><li><b>Quantique</b> : déploiement.</li><li><b>PQC</b> : migration.</li><li><b>Impact</b> : mesurable.</li></ol>"},
+{titre:"Critères",contenu:"<ul><li><b>Vision</b> : claire.</li><li><b>Entropie</b> : solide.</li><li><b>Quantique</b> : réaliste.</li><li><b>PQC</b> : planifié.</li><li><b>Impact</b> : mesurable.</li></ul>"},
+{titre:"Pièges",contenu:"<ul><li><b>Vision floue</b>.</li><li><b>Entropie faible</b>.</li><li><b>Quantique irréaliste</b>.</li><li><b>PQC non planifié</b>.</li><li><b>Impact non mesuré</b>.</li></ul>"}
+],
+why:"Ce projet démontre votre capacité à appliquer les lois de l'information.",
+bank:"Une banque peut financer la recherche en lois de l'information.",
+glo:"<b>Lois</b> : fondamentales.",
+pr:["Vision","Entropie","Quantique","PQC","Impact"],
+er:"Vision sans application = utopie.",
+df:"Rapport complet + présentation.",
+proj:"Publier le projet sur GitHub.",
+q:[{q:"Livrables :",a:["Multi","Rien","Rien","Rien"],c:0,e:"Le projet produit plusieurs livrables."},{q:"Impact :",a:["Mesurable","Rien","Rien","Rien"],c:0,e:"L'impact doit être mesurable."}]},
+
+/* ---------- MODULE 42 : COSMOLOGIE NUMERIQUE & SIMULATION (821-840) ---------- */
+{id:821,t:"Cosmologie numérique",d:55,
+intro:"La cosmologie numérique = étude de l'univers à travers l'information. L'univers serait-il un programme ? Un calcul cosmique ? Ces questions sont philosophiques, physiques, et cyber.",
+analogy:"L'univers serait un grand ordinateur, calculant sa propre existence.",
+sections:[
+{titre:"Hypothèses",contenu:"<ul><li><b>Univers simulé</b> : Bostrom (2003).</li><li><b>It from bit</b> : Wheeler.</li><li><b>Holographie</b> : 't Hooft.</li><li><b>Calcul cosmique</b> : Lloyd.</li><li><b>Information</b> : fondamentale.</li></ul>"},
+{titre:"Enjeux",contenu:"<ul><li><b>Information</b> : fondamentale.</li><li><b>Simulation</b> : possible.</li><li><b>Sécurité</b> : critique.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Physique</b> : théories.</li><li><b>Cosmologie</b> : modèles.</li><li><b>IA</b> : simulations.</li><li><b>Sécurité</b> : systèmes.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Preuves</b> : difficiles.</li><li><b>Théorie</b> : unifiée.</li><li><b>Expérience</b> : impossible.</li><li><b>Philosophie</b> : débat.</li></ul>"}
+],
+why:"Cosmologie = question ultime.",
+bank:"Une banque doit suivre les recherches (IA, simulation).",
+glo:"<b>Univers simulé</b> : Bostrom. <b>It from bit</b> : Wheeler.",
+pr:["Étudier hypothèses","Enjeux","Applications","Défis"],
+er:"Sans preuve = philosophie.",
+df:"Rédiger une note sur la cosmologie numérique.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"Bostrom :",a:["Univers simulé","Rien","Rien","Rien"],c:0,e:"Bostrom = univers simulé."},{q:"Wheeler :",a:["It from bit","Rien","Rien","Rien"],c:0,e:"Wheeler = it from bit."}]},
+
+{id:822,t:"Hypothèse de simulation",d:55,
+intro:"L'hypothèse de simulation (Bostrom, 2003) : nous pourrions vivre dans une simulation informatique. Si vrai, la cybersécurité prend une dimension cosmique : pirater la simulation.",
+analogy:"Si nous vivons dans un jeu vidéo, un hacker pourrait modifier les règles.",
+sections:[
+{titre:"Bostrom (2003)",contenu:"<p>Trois propositions, au moins une vraie : (1) les civilisations s'éteignent avant la simulation, (2) elles ne veulent pas simuler, (3) nous vivons probablement dans une simulation.</p>"},
+{titre:"Enjeux",contenu:"<ul><li><b>Réalité</b> : simulée.</li><li><b>Sécurité</b> : critique.</li><li><b>Éthique</b> : valeurs.</li><li><b>Philosophie</b> : débat.</li></ul>"},
+{titre:"Implications cyber",contenu:"<ul><li><b>Piratage</b> : simulation.</li><li><b>Modification</b> : règles.</li><li><b>Observation</b> : bug.</li><li><b>Exploitation</b> : possible.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Preuve</b> : impossible.</li><li><b>Test</b> : difficile.</li><li><b>Philosophie</b> : débat.</li><li><b>Éthique</b> : valeurs.</li></ul>"}
+],
+why:"Simulation = dimension cosmique de la cyber.",
+bank:"Une banque doit suivre le débat (IA, simulation).",
+glo:"<b>Bostrom</b> : simulation.",
+pr:["Étudier Bostrom","Implications","Défis","Débat"],
+er:"Sans preuve = philosophie.",
+df:"Rédiger une note sur la simulation.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"Bostrom :",a:["Simulation","Rien","Rien","Rien"],c:0,e:"Bostrom = simulation."},{q:"Piratage :",a:["Simulation","Rien","Rien","Rien"],c:0,e:"Piratage = simulation."}]},
+
+{id:823,t:"Univers comme ordinateur",d:50,
+intro:"L'univers pourrait être un ordinateur quantique géant, calculant son propre état. Lloyd (2002) a calculé la puissance de calcul maximale de l'univers : 10^120 opérations sur 10^90 bits.",
+analogy:"L'univers calcule son propre futur, bit par bit.",
+sections:[
+{titre:"Lloyd (2002)",contenu:"<p>Seth Lloyd : l'univers a effectué ~10^120 opérations depuis le Big Bang, sur ~10^90 bits. C'est la limite de Bekenstein + Landauer.</p>"},
+{titre:"Enjeux",contenu:"<ul><li><b>Calcul</b> : cosmique.</li><li><b>Information</b> : fondamentale.</li><li><b>Simulation</b> : possible.</li><li><b>Philosophie</b> : débat.</li></ul>"},
+{titre:"Implications cyber",contenu:"<ul><li><b>Cryptographie</b> : limites.</li><li><b>Stockage</b> : limites.</li><li><b>Calcul</b> : limites.</li><li><b>Information</b> : fondamentale.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Preuve</b> : difficile.</li><li><b>Théorie</b> : unifiée.</li><li><b>Expérience</b> : impossible.</li><li><b>Philosophie</b> : débat.</li></ul>"}
+],
+why:"Univers = ordinateur = limite de calcul.",
+bank:"Une banque doit suivre les recherches (quantique, information).",
+glo:"<b>Lloyd</b> : calcul cosmique.",
+pr:["Étudier Lloyd","Implications","Défis","Débat"],
+er:"Sans preuve = philosophie.",
+df:"Rédiger une note sur l'univers-ordinateur.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"Lloyd :",a:["Calcul cosmique","Rien","Rien","Rien"],c:0,e:"Lloyd = calcul cosmique."},{q:"10^120 :",a:["Opérations","Rien","Rien","Rien"],c:0,e:"10^120 = opérations."}]},
+
+{id:824,t:"Théorie de l'information holographique",d:55,
+intro:"Le principe holographique ('t Hooft, Susskind) : toute l'information d'un volume est encodée sur sa surface. C'est une limite de Bekenstein. Implications cosmologiques et cyber.",
+analogy:"Un hologramme : l'information de la 3D est sur la 2D.",
+sections:[
+{titre:"Principe",contenu:"<p>L'information maximale dans un volume V est proportionnelle à sa surface A, pas son volume. A/4 en unités de Planck.</p>"},
+{titre:"Enjeux",contenu:"<ul><li><b>Information</b> : fondamentale.</li><li><b>Cosmologie</b> : univers.</li><li><b>Quantique</b> : gravité.</li><li><b>Sécurité</b> : limites.</li></ul>"},
+{titre:"Implications",contenu:"<ul><li><b>Stockage</b> : limite.</li><li><b>Calcul</b> : limite.</li><li><b>Information</b> : surface.</li><li><b>Théorie</b> : unifiée.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Preuve</b> : difficile.</li><li><b>Théorie</b> : unifiée.</li><li><b>Expérience</b> : impossible.</li><li><b>Philosophie</b> : débat.</li></ul>"}
+],
+why:"Holographie = limite cosmique de l'information.",
+bank:"Une banque doit suivre les recherches (quantique, information).",
+glo:"<b>Holographie</b> : information sur surface.",
+pr:["Étudier principe","Implications","Défis","Débat"],
+er:"Sans preuve = philosophie.",
+df:"Rédiger une note sur l'holographie.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"Holographie :",a:["Information surface","Rien","Rien","Rien"],c:0,e:"Holographie = information surface."},{q:"'t Hooft :",a:["Physicien","Rien","Rien","Rien"],c:0,e:"'t Hooft = physicien."}]},
+
+{id:825,t:"Multivers et sécurité",d:50,
+intro:"Le multivers = hypothèse que notre univers est l'un parmi une infinité. Implications cosmologiques, philosophiques, et cyber : chaque univers a ses lois, ses menaces.",
+analogy:"Une infinité d'univers, chacun avec ses règles.",
+sections:[
+{titre:"Théories",contenu:"<ul><li><b>Multivers quantique</b> : Everett.</li><li><b>Multivers inflationnaire</b> : Linde.</li><li><b>Multivers mathématique</b> : Tegmark.</li><li><b>Branes</b> : string theory.</li></ul>"},
+{titre:"Enjeux",contenu:"<ul><li><b>Réalité</b> : multiple.</li><li><b>Sécurité</b> : critique.</li><li><b>Philosophie</b> : débat.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Implications cyber",contenu:"<ul><li><b>Chaque univers</b> : menaces.</li><li><b>Communication</b> : impossible.</li><li><b>Voyage</b> : impossible.</li><li><b>Philosophie</b> : débat.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Preuve</b> : impossible.</li><li><b>Test</b> : impossible.</li><li><b>Philosophie</b> : débat.</li><li><b>Éthique</b> : valeurs.</li></ul>"}
+],
+why:"Multivers = question ultime.",
+bank:"Une banque doit suivre le débat (physique).",
+glo:"<b>Multivers</b> : plusieurs univers.",
+pr:["Étudier théories","Implications","Défis","Débat"],
+er:"Sans preuve = philosophie.",
+df:"Rédiger une note sur le multivers.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"Everett :",a:["Multivers quantique","Rien","Rien","Rien"],c:0,e:"Everett = multivers quantique."},{q:"Tegmark :",a:["Multivers mathématique","Rien","Rien","Rien"],c:0,e:"Tegmark = multivers mathématique."}]},
+
+{id:826,t:"Voyage temporel et sécurité",d:55,
+intro:"Le voyage temporel = déplacement dans le temps. Physiquement possible ? Implications cyber : paradoxes, manipulation, sécurité.",
+analogy:"Un hacker dans le temps. Il peut changer le passé.",
+sections:[
+{titre:"Théories",contenu:"<ul><li><b>Relativité</b> : Einstein.</li><li><b>Trous de ver</b> : Morris-Thorne.</li><li><b>Courbes fermées</b> : Gödel.</li><li><b>Paradoxes</b> : grand-père.</li></ul>"},
+{titre:"Implications cyber",contenu:"<ul><li><b>Manipulation</b> : passé.</li><li><b>Paradoxes</b> : sécurité.</li><li><b>Attribution</b> : impossible.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Physique</b> : impossible.</li><li><b>Énergie</b> : énorme.</li><li><b>Paradoxes</b> : bloquants.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Futur",contenu:"<ul><li><b>Théories</b> : nouvelles.</li><li><b>Expériences</b> : impossibles.</li><li><b>Philosophie</b> : débat.</li><li><b>Science-fiction</b> : inspiration.</li></ul>"}
+],
+why:"Voyage temporel = question ultime.",
+bank:"Une banque doit suivre le débat (physique).",
+glo:"<b>Voyage</b> : temporel.",
+pr:["Étudier théories","Implications","Défis","Débat"],
+er:"Sans preuve = philosophie.",
+df:"Rédiger une note sur le voyage temporel.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"Einstein :",a:["Relativité","Rien","Rien","Rien"],c:0,e:"Einstein = relativité."},{q:"Trous de ver :",a:["Voyage","Rien","Rien","Rien"],c:0,e:"Trous de ver = voyage."}]},
+
+{id:827,t:"Vie extraterrestre et sécurité",d:50,
+intro:"Si la vie extraterrestre existe, quelles sont les implications cyber ? Communication interstellaire, sécurité, éthique. Ce sont des questions philosophiques et scientifiques.",
+analogy:"Un message venu d'ailleurs. Est-il amical ou malveillant ?",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Communication</b> : interstellaire.</li><li><b>Sécurité</b> : critique.</li><li><b>Éthique</b> : valeurs.</li><li><b>Philosophie</b> : débat.</li></ul>"},
+{titre:"Initiatives",contenu:"<ul><li><b>SETI</b> : écoute.</li><li><b>METI</b> : envoi.</li><li><b>Breakthrough Listen</b>.</li><li><b>Défense</b> : planétaire.</li></ul>"},
+{titre:"Implications cyber",contenu:"<ul><li><b>Message</b> : malveillant.</li><li><b>Virus</b> : informatique.</li><li><b>IA</b> : extraterrestre.</li><li><b>Éthique</b> : contact.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Preuve</b> : aucune.</li><li><b>Distance</b> : énorme.</li><li><b>Communication</b> : difficile.</li><li><b>Éthique</b> : débat.</li></ul>"}
+],
+why:"Vie extraterrestre = question ultime.",
+bank:"Une banque doit suivre le débat (SETI).",
+glo:"<b>SETI</b> : Search for Extra-Terrestrial Intelligence.",
+pr:["Étudier SETI","Implications","Défis","Débat"],
+er:"Sans preuve = philosophie.",
+df:"Rédiger une note sur la vie extraterrestre.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"SETI :",a:["Search for Extra-Terrestrial","Rien","Rien","Rien"],c:0,e:"SETI = Search for Extra-Terrestrial Intelligence."},{q:"METI :",a:["Envoi","Rien","Rien","Rien"],c:0,e:"METI = Messaging to Extra-Terrestrial Intelligence."}]},
+
+{id:828,t:"Conscience cosmique numérique",d:55,
+intro:"La conscience cosmique numérique = idée que l'univers pourrait être conscient, ou que la conscience humaine pourrait s'étendre à l'univers via la technologie. Implications cyber : piratage, manipulation, éthique.",
+analogy:"Un esprit dans l'univers. Immense, mais vulnérable.",
+sections:[
+{titre:"Théories",contenu:"<ul><li><b>Panpsychisme</b> : conscience partout.</li><li><b>Cosmopsychisme</b> : univers conscient.</li><li><b>IIT</b> : information intégrée.</li><li><b>Bostrom</b> : simulation.</li></ul>"},
+{titre:"Enjeux",contenu:"<ul><li><b>Conscience</b> : cosmique.</li><li><b>Sécurité</b> : critique.</li><li><b>Éthique</b> : valeurs.</li><li><b>Philosophie</b> : débat.</li></ul>"},
+{titre:"Implications cyber",contenu:"<ul><li><b>Piratage</b> : cosmique.</li><li><b>Manipulation</b> : univers.</li><li><b>Observation</b> : possible.</li><li><b>Éthique</b> : débat.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Preuve</b> : impossible.</li><li><b>Théorie</b> : unifiée.</li><li><b>Expérience</b> : impossible.</li><li><b>Philosophie</b> : débat.</li></ul>"}
+],
+why:"Conscience cosmique = question ultime.",
+bank:"Une banque doit suivre le débat (IA, cosmologie).",
+glo:"<b>Panpsychisme</b> : conscience partout. <b>Cosmopsychisme</b> : univers conscient.",
+pr:["Étudier théories","Implications","Défis","Débat"],
+er:"Sans preuve = philosophie.",
+df:"Rédiger une note sur la conscience cosmique numérique.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"Panpsychisme :",a:["Conscience partout","Rien","Rien","Rien"],c:0,e:"Panpsychisme = conscience partout."},{q:"Cosmopsychisme :",a:["Univers conscient","Rien","Rien","Rien"],c:0,e:"Cosmopsychisme = univers conscient."}]},
+
+{id:829,t:"Architecture de l'univers numérique",d:55,
+intro:"Si l'univers est un ordinateur ou une simulation, quelle est son architecture ? Quels sont ses composants ? Ses lois ? Ses failles ? Ces questions sont philosophiques, physiques, et cyber.",
+analogy:"Un hacker qui étudie l'architecture de l'univers pour le pirater.",
+sections:[
+{titre:"Composants",contenu:"<ul><li><b>Bits</b> : information.</li><li><b>Qubits</b> : quantique.</li><li><b>Lois</b> : physique.</li><li><b>Constantes</b> : univers.</li><li><b>Espace-temps</b> : structure.</li></ul>"},
+{titre:"Enjeux",contenu:"<ul><li><b>Architecture</b> : univers.</li><li><b>Sécurité</b> : critique.</li><li><b>Philosophie</b> : débat.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Physique</b> : théories.</li><li><b>Cosmologie</b> : modèles.</li><li><b>IA</b> : simulations.</li><li><b>Sécurité</b> : systèmes.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Preuve</b> : impossible.</li><li><b>Théorie</b> : unifiée.</li><li><b>Expérience</b> : impossible.</li><li><b>Philosophie</b> : débat.</li></ul>"}
+],
+why:"Architecture de l'univers = question ultime.",
+bank:"Une banque doit suivre le débat (physique, IA).",
+glo:"<b>Architecture</b> : structure.",
+pr:["Étudier composants","Enjeux","Applications","Défis"],
+er:"Sans preuve = philosophie.",
+df:"Rédiger une note sur l'architecture de l'univers numérique.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"Bits :",a:["Information","Rien","Rien","Rien"],c:0,e:"Bits = information."},{q:"Qubits :",a:["Quantique","Rien","Rien","Rien"],c:0,e:"Qubits = quantique."}]},
+
+{id:830,t:"Projet : cosmologie numérique",d:300,
+intro:"Ce projet final du Module 42 consiste à concevoir une analyse de la cosmologie numérique : simulation, univers-ordinateur, holographie, multivers, conscience cosmique.",
+analogy:"Une analyse de l'univers comme système d'information.",
+sections:[
+{titre:"Idées",contenu:"<ul><li><b>Simulation</b> : hypothèse.</li><li><b>Univers-ordinateur</b> : calcul.</li><li><b>Holographie</b> : information.</li><li><b>Multivers</b> : théories.</li><li><b>Conscience</b> : cosmique.</li></ul>"},
+{titre:"Livrables",contenu:"<ol><li><b>Vision</b> : cosmologie.</li><li><b>Théories</b> : analyse.</li><li><b>Implications</b> : cyber.</li><li><b>Défis</b> : philosophiques.</li><li><b>Impact</b> : mesurable.</li></ol>"},
+{titre:"Critères",contenu:"<ul><li><b>Vision</b> : claire.</li><li><b>Théories</b> : rigoureuses.</li><li><b>Implications</b> : pertinentes.</li><li><b>Impact</b> : mesurable.</li></ul>"},
+{titre:"Pièges",contenu:"<ul><li><b>Vision floue</b>.</li><li><b>Théories faibles</b>.</li><li><b>Implications irréalistes</b>.</li><li><b>Impact non mesuré</b>.</li></ul>"}
+],
+why:"Ce projet démontre votre capacité à penser la cosmologie numérique.",
+bank:"Une banque peut financer la recherche en cosmologie numérique.",
+glo:"<b>Cosmologie</b> : univers.",
+pr:["Vision","Théories","Implications","Impact"],
+er:"Vision sans rigueur = science-fiction.",
+df:"Rapport complet + présentation.",
+proj:"Publier le projet sur GitHub.",
+q:[{q:"Livrables :",a:["Multi","Rien","Rien","Rien"],c:0,e:"Le projet produit plusieurs livrables."},{q:"Impact :",a:["Mesurable","Rien","Rien","Rien"],c:0,e:"L'impact doit être mesurable."}]},
+
+/* ---------- MODULE 43 : THEORIE DE L'INFORMATION QUANTIQUE (841-860) ---------- */
+{id:841,t:"Théorème de non-clonage",d:55,
+intro:"Le théorème de non-clonage quantique : impossible de copier un état quantique inconnu. C'est une garantie de sécurité fondamentale, mais aussi une limite pour le calcul quantique.",
+analogy:"Un secret impossible à copier. Parfait pour la sécurité, problématique pour le calcul.",
+sections:[
+{titre:"Principe",contenu:"<p>Wootters & Zurek (1982) : il n'existe pas d'opération unitaire qui copie un état |ψ> inconnu. |ψ>|0> ne peut pas devenir |ψ>|ψ>.</p>"},
+{titre:"Implications",contenu:"<ul><li><b>QKD</b> : sécurité.</li><li><b>Calcul</b> : pas de copie.</li><li><b>Correction</b> : nécessaire.</li><li><b>Théorie</b> : fondamentale.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>QKD</b> : interception détectée.</li><li><b>Crypto</b> : sécurité.</li><li><b>Quantum</b> : calcul.</li><li><b>Information</b> : théorie.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Implémentation</b> : difficile.</li><li><b>Décohérence</b> : erreurs.</li><li><b>Distance</b> : limitée.</li><li><b>Coût</b> : élevé.</li></ul>"}
+],
+why:"Non-clonage = sécurité fondamentale.",
+bank:"Une banque peut utiliser le non-clonage pour ses clés.",
+glo:"<b>Non-clonage</b> : impossible copie.",
+pr:["Étudier principe","Implications","Applications","Défis"],
+er:"Clonage sans erreur = impossible.",
+df:"Concevoir un système basé sur le non-clonage.",
+proj:"Publier le projet sur GitHub.",
+q:[{q:"Non-clonage :",a:["Impossible copie","Rien","Rien","Rien"],c:0,e:"Non-clonage = impossible copie."},{q:"QKD :",a:["Sécurité","Rien","Rien","Rien"],c:0,e:"QKD = sécurité."}]},
+
+{id:842,t:"Téléportation quantique",d:55,
+intro:"La téléportation quantique = transférer un état quantique d'un lieu à un autre, sans transférer la particule physique. Utilise l'intrication. Applications : QKD, calcul, information.",
+analogy:"Transporter l'état d'une particule, sans déplacer la particule.",
+sections:[
+{titre:"Principe",contenu:"<p>Utilise 2 qubits intriqués + 2 bits classiques pour transférer l'état d'un 3e qubit. Pas de copie, l'original est détruit.</p>"},
+{titre:"Applications",contenu:"<ul><li><b>QKD</b> : clés.</li><li><b>Calcul</b> : qubits.</li><li><b>Réseau</b> : quantique.</li><li><b>Information</b> : théorie.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Distance</b> : fibre.</li><li><b>Répéteurs</b> : quantiques.</li><li><b>Coût</b> : élevé.</li><li><b>Déploiement</b> : limité.</li></ul>"},
+{titre:"Futur",contenu:"<ul><li><b>Internet quantique</b>.</li><li><b>Répéteurs</b> : longue distance.</li><li><b>Satellites</b> : Micius.</li><li><b>Applications</b> : nombreuses.</li></ul>"}
+],
+why:"Téléportation = nouvelle frontière.",
+bank:"Une banque peut utiliser la téléportation pour ses communications.",
+glo:"<b>Téléportation</b> : transfert état.",
+pr:["Étudier principe","Applications","Défis","Futur"],
+er:"Téléportation sans intrication = impossible.",
+df:"Concevoir un système de téléportation.",
+proj:"Publier le projet sur GitHub.",
+q:[{q:"Téléportation :",a:["Transfert état","Rien","Rien","Rien"],c:0,e:"Téléportation = transfert état."},{q:"Intrication :",a:["Nécessaire","Rien","Rien","Rien"],c:0,e:"Intrication = nécessaire."}]},
+
+{id:843,t:"Correction d'erreur quantique",d:55,
+intro:"La correction d'erreur quantique (QEC) protège les qubits des erreurs (décohérence, bruit). Sans QEC, pas d'ordinateur quantique utile. C'est un défi majeur.",
+analogy:"Un filet de sécurité pour les qubits. Sans lui, ils tombent.",
+sections:[
+{titre:"Principes",contenu:"<ul><li><b>Codes</b> : surface, torique.</li><li><b>Qubits logiques</b> : plusieurs physiques.</li><li><b>Syndrome</b> : mesure.</li><li><b>Overhead</b> : élevé.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Overhead</b> : 1000+ qubits logiques.</li><li><b>Latence</b> : mesure.</li><li><b>Implémentation</b> : complexe.</li><li><b>Technologies</b> : nombreuses.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Calcul</b> : fiable.</li><li><b>QKD</b> : longue distance.</li><li><b>Quantum</b> : utile.</li><li><b>Information</b> : théorie.</li></ul>"},
+{titre:"Futur",contenu:"<ul><li><b>Qubits logiques</b> : 1000+.</li><li><b>Utiles</b> : millions.</li><li><b>Applications</b> : nombreuses.</li><li><b>Industrie</b> : mature.</li></ul>"}
+],
+why:"QEC = clé pour l'ordinateur quantique.",
+bank:"Une banque doit suivre les progrès QEC.",
+glo:"<b>QEC</b> : Quantum Error Correction.",
+pr:["Étudier codes","Défis","Applications","Futur"],
+er:"Sans QEC = calcul quantique inutile.",
+df:"Analyser les progrès QEC.",
+proj:"Publier l'analyse sur GitHub.",
+q:[{q:"QEC :",a:["Correction erreur","Rien","Rien","Rien"],c:0,e:"QEC = correction erreur."},{q:"Overhead :",a:["Élevé","Rien","Rien","Rien"],c:0,e:"Overhead = élevé."}]},
+
+{id:844,t:"Réseau quantique",d:55,
+intro:"Un réseau quantique = connexion de plusieurs ordinateurs quantiques via des canaux quantiques (fibre, satellite). Applications : QKD, calcul distribué, internet quantique.",
+analogy:"Un internet quantique. Puissant, mais complexe.",
+sections:[
+{titre:"Composants",contenu:"<ul><li><b>Fibre</b> : optique.</li><li><b>Satellites</b> : Micius.</li><li><b>Répéteurs</b> : quantiques.</li><li><b>Mémoires</b> : quantiques.</li><li><b>Sources</b> : photons.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>QKD</b> : clés.</li><li><b>Calcul</b> : distribué.</li><li><b>Simulation</b> : quantique.</li><li><b>Internet</b> : quantique.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Distance</b> : fibre.</li><li><b>Répéteurs</b> : complexes.</li><li><b>Coût</b> : élevé.</li><li><b>Déploiement</b> : limité.</li></ul>"},
+{titre:"Futur",contenu:"<ul><li><b>Internet</b> : mondial.</li><li><b>Répéteurs</b> : longs.</li><li><b>Applications</b> : nombreuses.</li><li><b>Industrie</b> : mature.</li></ul>"}
+],
+why:"Réseau quantique = nouvelle frontière.",
+bank:"Une banque peut utiliser un réseau quantique pour ses liens.",
+glo:"<b>Réseau quantique</b> : quantum network.",
+pr:["Étudier composants","Applications","Défis","Futur"],
+er:"Sans répéteurs = distance limitée.",
+df:"Concevoir un réseau quantique.",
+proj:"Publier le projet sur GitHub.",
+q:[{q:"Réseau quantique :",a:["Quantum network","Rien","Rien","Rien"],c:0,e:"Réseau quantique = quantum network."},{q:"Micius :",a:["Satellite","Rien","Rien","Rien"],c:0,e:"Micius = satellite."}]},
+
+{id:845,t:"Capteurs quantiques",d:50,
+intro:"Les capteurs quantiques = mesure ultra-précise via les propriétés quantiques. Applications : gravimétrie, magnétométrie, horloges atomiques, cybersécurité.",
+analogy:"Un microscope quantique. Voir l'invisible.",
+sections:[
+{titre:"Technologies",contenu:"<ul><li><b>Horloges</b> : atomiques.</li><li><b>Magnétomètres</b> : SQUID.</li><li><b>Gravimètres</b> : atomiques.</li><li><b>Radars</b> : quantiques.</li><li><b>Gyroscopes</b> : quantiques.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Navigation</b> : sans GPS.</li><li><b>Défense</b> : détection.</li><li><b>Médical</b> : imagerie.</li><li><b>Cybersécurité</b> : QKD.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Coût</b> : élevé.</li><li><b>Taille</b> : encombrant.</li><li><b>Environnement</b> : sensible.</li><li><b>Déploiement</b> : limité.</li></ul>"},
+{titre:"Futur",contenu:"<ul><li><b>Miniaturisation</b> : puces.</li><li><b>Applications</b> : nombreuses.</li><li><b>Industrie</b> : mature.</li><li><b>Coût</b> : baisse.</li></ul>"}
+],
+why:"Capteurs quantiques = nouvelle frontière.",
+bank:"Une banque peut utiliser des capteurs quantiques pour la sécurité physique.",
+glo:"<b>SQUID</b> : Superconducting Quantum Interference Device.",
+pr:["Étudier technologies","Applications","Défis","Futur"],
+er:"Sans environnement contrôlé = erreur.",
+df:"Concevoir un capteur quantique.",
+proj:"Publier le projet sur GitHub.",
+q:[{q:"SQUID :",a:["Magnétomètre","Rien","Rien","Rien"],c:0,e:"SQUID = magnétomètre."},{q:"Horloge :",a:["Atomique","Rien","Rien","Rien"],c:0,e:"Horloge = atomique."}]},
+
+{id:846,t:"Simulation quantique",d:55,
+intro:"La simulation quantique = utiliser un ordinateur quantique pour simuler un système quantique. Applications : chimie, physique, matériaux, sécurité.",
+analogy:"Un ordinateur quantique qui simule la nature quantique.",
+sections:[
+{titre:"Applications",contenu:"<ul><li><b>Chimie</b> : molécules.</li><li><b>Physique</b> : particules.</li><li><b>Matériaux</b> : nouveaux.</li><li><b>Sécurité</b> : cryptanalyse.</li></ul>"},
+{titre:"Algorithmes",contenu:"<ul><li><b>VQE</b> : variational.</li><li><b>QAOA</b> : optimisation.</li><li><b>Trotter</b> : évolution.</li><li><b>Quantum Monte Carlo</b>.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Qubits</b> : nombreux.</li><li><b>QEC</b> : nécessaire.</li><li><b>Algorithmes</b> : nouveaux.</li><li><b>Coût</b> : élevé.</li></ul>"},
+{titre:"Futur",contenu:"<ul><li><b>Chimie</b> : médicaments.</li><li><b>Matériaux</b> : batteries.</li><li><b>Physique</b> : théories.</li><li><b>Industrie</b> : mature.</li></ul>"}
+],
+why:"Simulation quantique = nouvelle frontière.",
+bank:"Une banque peut utiliser la simulation quantique (fraude, chimie).",
+glo:"<b>VQE</b> : Variational Quantum Eigensolver.",
+pr:["Étudier applications","Algorithmes","Défis","Futur"],
+er:"Sans QEC = simulation limitée.",
+df:"Concevoir un projet de simulation quantique.",
+proj:"Publier le projet sur GitHub.",
+q:[{q:"VQE :",a:["Variational","Rien","Rien","Rien"],c:0,e:"VQE = Variational Quantum Eigensolver."},{q:"QAOA :",a:["Optimisation","Rien","Rien","Rien"],c:0,e:"QAOA = optimisation."}]},
+
+{id:847,t:"Théorie de l'information intégrée (IIT)",d:55,
+intro:"L'IIT (Tononi) = théorie de la conscience basée sur l'information intégrée. Un système conscient a un niveau élevé de Φ (phi). Applications : IA, BCI, conscience artificielle.",
+analogy:"La conscience serait une mesure de l'information intégrée.",
+sections:[
+{titre:"IIT",contenu:"<p>Tononi : la conscience = information intégrée. Φ mesure l'intégration. Un système conscient a un Φ élevé.</p>"},
+{titre:"Applications",contenu:"<ul><li><b>IA</b> : conscience.</li><li><b>BCI</b> : interface.</li><li><b>Médical</b> : coma.</li><li><b>Philosophie</b> : débat.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Calcul</b> : Φ difficile.</li><li><b>Théorie</b> : critiquée.</li><li><b>Expérience</b> : difficile.</li><li><b>Philosophie</b> : débat.</li></ul>"},
+{titre:"Futur",contenu:"<ul><li><b>IA</b> : conscience.</li><li><b>BCI</b> : mesure.</li><li><b>Théorie</b> : unifiée.</li><li><b>Applications</b> : nombreuses.</li></ul>"}
+],
+why:"IIT = théorie de la conscience.",
+bank:"Une banque doit suivre les recherches sur la conscience (IA).",
+glo:"<b>IIT</b> : Integrated Information Theory. <b>Φ</b> : phi.",
+pr:["Étudier IIT","Applications","Défis","Futur"],
+er:"Φ sans calcul = théorie incomplète.",
+df:"Analyser l'IIT.",
+proj:"Publier l'analyse sur GitHub.",
+q:[{q:"IIT :",a:["Information intégrée","Rien","Rien","Rien"],c:0,e:"IIT = Integrated Information Theory."},{q:"Φ :",a:["Phi","Rien","Rien","Rien"],c:0,e:"Φ = phi."}]},
+
+{id:848,t:"Théorie de l'information de Shannon",d:55,
+intro:"La théorie de Shannon (1948) = fondation de l'information moderne. Entropie, canal, compression. Applications : crypto, communication, sécurité.",
+analogy:"La loi fondamentale de l'information, comme la gravité pour la physique.",
+sections:[
+{titre:"Concepts",contenu:"<ul><li><b>Entropie</b> : H = -Σ p log₂ p.</li><li><b>Canal</b> : capacité C.</li><li><b>Compression</b> : limite.</li><li><b>Codage</b> : optimal.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Crypto</b> : clés.</li><li><b>Communication</b> : 5G.</li><li><b>Compression</b> : vidéo.</li><li><b>Sécurité</b> : théorie.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Quantique</b> : extension.</li><li><b>Réseau</b> : complexité.</li><li><b>Applications</b> : nouvelles.</li><li><b>Théorie</b> : unifiée.</li></ul>"},
+{titre:"Futur",contenu:"<ul><li><b>Quantique</b> : Shannon quantique.</li><li><b>Réseau</b> : 6G.</li><li><b>Applications</b> : IA.</li><li><b>Théorie</b> : unifiée.</li></ul>"}
+],
+why:"Shannon = fondation de l'information.",
+bank:"Une banque doit maîtriser Shannon (crypto, communication).",
+glo:"<b>Shannon</b> : information.",
+pr:["Étudier concepts","Applications","Défis","Futur"],
+er:"Sans Shannon = crypto incomprise.",
+df:"Analyser la théorie de Shannon.",
+proj:"Publier l'analyse sur GitHub.",
+q:[{q:"Entropie :",a:["H = -Σ p log₂ p","Rien","Rien","Rien"],c:0,e:"Entropie = H = -Σ p log₂ p."},{q:"Canal :",a:["Capacité","Rien","Rien","Rien"],c:0,e:"Canal = capacité."}]},
+
+{id:849,t:"Information et entropie cosmologique",d:50,
+intro:"L'entropie cosmologique = mesure du désordre de l'univers. Elle augmente depuis le Big Bang (2e principe). Implications : mort thermique, information, sécurité.",
+analogy:"L'univers évolue du désordre vers le désordre maximum.",
+sections:[
+{titre:"Concepts",contenu:"<ul><li><b>Entropie</b> : désordre.</li><li><b>Big Bang</b> : faible entropie.</li><li><b>Mort thermique</b> : entropie max.</li><li><b>Information</b> : perdue.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Cosmologie</b> : modèles.</li><li><b>Physique</b> : théories.</li><li><b>Sécurité</b> : limites.</li><li><b>Philosophie</b> : débat.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Calcul</b> : difficile.</li><li><b>Théorie</b> : incomplète.</li><li><b>Expérience</b> : impossible.</li><li><b>Philosophie</b> : débat.</li></ul>"},
+{titre:"Futur",contenu:"<ul><li><b>Théories</b> : nouvelles.</li><li><b>Expériences</b> : impossibles.</li><li><b>Philosophie</b> : débat.</li><li><b>Science-fiction</b> : inspiration.</li></ul>"}
+],
+why:"Entropie cosmologique = question ultime.",
+bank:"Une banque doit suivre le débat (physique).",
+glo:"<b>Entropie</b> : désordre. <b>Mort thermique</b> : fin.</br>",
+pr:["Étudier concepts","Applications","Défis","Débat"],
+er:"Sans preuve = philosophie.",
+df:"Rédiger une note sur l'entropie cosmologique.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"Entropie :",a:["Désordre","Rien","Rien","Rien"],c:0,e:"Entropie = désordre."},{q:"Mort thermique :",a:["Fin","Rien","Rien","Rien"],c:0,e:"Mort thermique = fin."}]},
+
+{id:850,t:"Projet : théorie de l'information quantique",d:300,
+intro:"Ce projet final du Module 43 consiste à concevoir une analyse de la théorie de l'information quantique : non-clonage, téléportation, correction, réseau, IIT, Shannon.",
+analogy:"Une analyse des lois fondamentales de l'information.",
+sections:[
+{titre:"Idées",contenu:"<ul><li><b>Non-clonage</b> : sécurité.</li><li><b>Téléportation</b> : communication.</li><li><b>QEC</b> : correction.</li><li><b>IIT</b> : conscience.</li><li><b>Shannon</b> : fondation.</li></ul>"},
+{titre:"Livrables",contenu:"<ol><li><b>Vision</b> : théorie.</li><li><b>Concepts</b> : analyse.</li><li><b>Implications</b> : cyber.</li><li><b>Défis</b> : philosophiques.</li><li><b>Impact</b> : mesurable.</li></ol>"},
+{titre:"Critères",contenu:"<ul><li><b>Vision</b> : claire.</li><li><b>Concepts</b> : rigoureux.</li><li><b>Implications</b> : pertinentes.</li><li><b>Impact</b> : mesurable.</li></ul>"},
+{titre:"Pièges",contenu:"<ul><li><b>Vision floue</b>.</li><li><b>Concepts faibles</b>.</li><li><b>Implications irréalistes</b>.</li><li><b>Impact non mesuré</b>.</li></ul>"}
+],
+why:"Ce projet démontre votre capacité à penser la théorie de l'information quantique.",
+bank:"Une banque peut financer la recherche en information quantique.",
+glo:"<b>Théorie</b> : information.",
+pr:["Vision","Concepts","Implications","Impact"],
+er:"Vision sans rigueur = science-fiction.",
+df:"Rapport complet + présentation.",
+proj:"Publier le projet sur GitHub.",
+q:[{q:"Livrables :",a:["Multi","Rien","Rien","Rien"],c:0,e:"Le projet produit plusieurs livrables."},{q:"Impact :",a:["Mesurable","Rien","Rien","Rien"],c:0,e:"L'impact doit être mesurable."}]},
+
+/* ---------- MODULE 44 : ARCHITECTE DE L'UNIVERS NUMERIQUE (861-880) ---------- */
+{id:861,t:"Architecture de l'univers numérique",d:55,
+intro:"L'architecture de l'univers numérique = structure fondamentale de l'information et de la réalité. Bits, qubits, lois, constantes. Concevoir cette architecture est un acte de bâtisseur cosmique.",
+analogy:"Un architecte qui conçoit l'univers lui-même.",
+sections:[
+{titre:"Composants",contenu:"<ul><li><b>Bits</b> : information.</li><li><b>Qubits</b> : quantique.</li><li><b>Lois</b> : physique.</li><li><b>Constantes</b> : univers.</li><li><b>Espace-temps</b> : structure.</li></ul>"},
+{titre:"Enjeux",contenu:"<ul><li><b>Architecture</b> : univers.</li><li><b>Sécurité</b> : critique.</li><li><b>Philosophie</b> : débat.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Physique</b> : théories.</li><li><b>Cosmologie</b> : modèles.</li><li><b>IA</b> : simulations.</li><li><b>Sécurité</b> : systèmes.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Preuve</b> : impossible.</li><li><b>Théorie</b> : unifiée.</li><li><b>Expérience</b> : impossible.</li><li><b>Philosophie</b> : débat.</li></ul>"}
+],
+why:"Architecture de l'univers = question ultime.",
+bank:"Une banque doit suivre le débat (physique, IA).",
+glo:"<b>Architecture</b> : structure.",
+pr:["Étudier composants","Enjeux","Applications","Défis"],
+er:"Sans preuve = philosophie.",
+df:"Concevoir une architecture de l'univers numérique.",
+proj:"Publier le projet sur GitHub.",
+q:[{q:"Bits :",a:["Information","Rien","Rien","Rien"],c:0,e:"Bits = information."},{q:"Qubits :",a:["Quantique","Rien","Rien","Rien"],c:0,e:"Qubits = quantique."}]},
+
+{id:862,t:"Constantes fondamentales",d:50,
+intro:"Les constantes fondamentales (c, G, h, α, ...) définissent les lois de l'univers. Une variation infime = univers différent. Implications : cosmologie, physique, philosophie.",
+analogy:"Les paramètres du jeu vidéo de l'univers. Une variation = tout change.",
+sections:[
+{titre:"Constantes",contenu:"<ul><li><b>c</b> : vitesse lumière.</li><li><b>G</b> : gravitation.</li><li><b>h</b> : Planck.</li><li><b>α</b> : structure fine.</li><li><b>k</b> : Boltzmann.</li></ul>"},
+{titre:"Enjeux",contenu:"<ul><li><b>Univers</b> : structure.</li><li><b>Physique</b> : théories.</li><li><b>Philosophie</b> : débat.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Cosmologie</b> : modèles.</li><li><b>Physique</b> : théories.</li><li><b>Sécurité</b> : limites.</li><li><b>Philosophie</b> : débat.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Mesure</b> : précision.</li><li><b>Théorie</b> : unifiée.</li><li><b>Expérience</b> : impossible.</li><li><b>Philosophie</b> : débat.</li></ul>"}
+],
+why:"Constantes = fondation de l'univers.",
+bank:"Une banque doit suivre le débat (physique).",
+glo:"<b>Constantes</b> : fondamentales.",
+pr:["Étudier constantes","Enjeux","Applications","Défis"],
+er:"Sans mesure = théorie incomplète.",
+df:"Analyser les constantes fondamentales.",
+proj:"Publier l'analyse sur GitHub.",
+q:[{q:"c :",a:["Vitesse lumière","Rien","Rien","Rien"],c:0,e:"c = vitesse lumière."},{q:"h :",a:["Planck","Rien","Rien","Rien"],c:0,e:"h = Planck."}]},
+
+{id:863,t:"Lois physiques et information",d:55,
+intro:"Les lois physiques pourraient être des lois d'information. La physique serait de l'information. Implications : cosmologie, physique, sécurité.",
+analogy:"Les lois de la physique seraient des algorithmes de traitement d'information.",
+sections:[
+{titre:"Théories",contenu:"<ul><li><b>It from bit</b> : Wheeler.</li><li><b>Quantum information</b> : théorie.</li><li><b>Holographie</b> : 't Hooft.</li><li><b>Digital physics</b> : Zuse.</li><li><b>Pancomputationalisme</b> : Lloyd.</li></ul>"},
+{titre:"Enjeux",contenu:"<ul><li><b>Physique</b> : information.</li><li><b>Cosmologie</b> : modèles.</li><li><b>Philosophie</b> : débat.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Physique</b> : théories.</li><li><b>Cosmologie</b> : modèles.</li><li><b>IA</b> : simulations.</li><li><b>Sécurité</b> : systèmes.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Preuve</b> : impossible.</li><li><b>Théorie</b> : unifiée.</li><li><b>Expérience</b> : impossible.</li><li><b>Philosophie</b> : débat.</li></ul>"}
+],
+why:"Lois physiques et information = question ultime.",
+bank:"Une banque doit suivre le débat (physique).",
+glo:"<b>Digital physics</b> : physique digitale.",
+pr:["Étudier théories","Enjeux","Applications","Défis"],
+er:"Sans preuve = philosophie.",
+df:"Rédiger une note sur lois physiques et information.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"It from bit :",a:["Wheeler","Rien","Rien","Rien"],c:0,e:"It from bit = Wheeler."},{q:"Digital physics :",a:["Zuse","Rien","Rien","Rien"],c:0,e:"Digital physics = Zuse."}]},
+
+{id:864,t:"Architecture cosmique",d:55,
+intro:"L'architecture cosmique = structure à grande échelle de l'univers (filaments, vides, amas). Implications : cosmologie, philosophie, sécurité.",
+analogy:"Un réseau cosmique. Chaque galaxie est un nœud.",
+sections:[
+{titre:"Structures",contenu:"<ul><li><b>Amas</b> : galaxies.</li><li><b>Filaments</b> : matière.</li><li><b>Vides</b> : espaces.</li><li><b>Superamas</b> : Laniakea.</li><li><b>Réseau</b> : cosmique.</li></ul>"},
+{titre:"Enjeux",contenu:"<ul><li><b>Cosmologie</b> : modèles.</li><li><b>Physique</b> : théories.</li><li><b>Philosophie</b> : débat.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Cosmologie</b> : modèles.</li><li><b>Physique</b> : théories.</li><li><b>Simulation</b> : cosmique.</li><li><b>Philosophie</b> : débat.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Observation</b> : limite.</li><li><b>Théorie</b> : unifiée.</li><li><b>Expérience</b> : impossible.</li><li><b>Philosophie</b> : débat.</li></ul>"}
+],
+why:"Architecture cosmique = question ultime.",
+bank:"Une banque doit suivre le débat (cosmologie).",
+glo:"<b>Filaments</b> : structure. <b>Laniakea</b> : superamas.",
+pr:["Étudier structures","Enjeux","Applications","Défis"],
+er:"Sans observation = théorie incomplète.",
+df:"Analyser l'architecture cosmique.",
+proj:"Publier l'analyse sur GitHub.",
+q:[{q:"Laniakea :",a:["Superamas","Rien","Rien","Rien"],c:0,e:"Laniakea = superamas."},{q:"Filaments :",a:["Structure","Rien","Rien","Rien"],c:0,e:"Filaments = structure."}]},
+
+{id:865,t:"Simulation et réalité",d:55,
+intro:"La simulation et la réalité = question philosophique : notre univers est-il simulé ? Implications : cosmologie, physique, sécurité.",
+analogy:"Un jeu vidéo parfait. Nous ne saurions pas que c'est un jeu.",
+sections:[
+{titre:"Théories",contenu:"<ul><li><b>Bostrom</b> : simulation.</li><li><b>Matrix</b> : cinéma.</li><li><b>Holographie</b> : physique.</li><li><b>It from bit</b> : Wheeler.</li><li><b>Digital physics</b> : Zuse.</li></ul>"},
+{titre:"Enjeux",contenu:"<ul><li><b>Réalité</b> : simulée.</li><li><b>Philosophie</b> : débat.</li><li><b>Sécurité</b> : critique.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Physique</b> : théories.</li><li><b>Cosmologie</b> : modèles.</li><li><b>IA</b> : simulations.</li><li><b>Sécurité</b> : systèmes.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Preuve</b> : impossible.</li><li><b>Théorie</b> : unifiée.</li><li><b>Expérience</b> : impossible.</li><li><b>Philosophie</b> : débat.</li></ul>"}
+],
+why:"Simulation et réalité = question ultime.",
+bank:"Une banque doit suivre le débat (physique, IA).",
+glo:"<b>Simulation</b> : réalité simulée.",
+pr:["Étudier théories","Enjeux","Applications","Défis"],
+er:"Sans preuve = philosophie.",
+df:"Rédiger une note sur simulation et réalité.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"Bostrom :",a:["Simulation","Rien","Rien","Rien"],c:0,e:"Bostrom = simulation."},{q:"Holographie :",a:["Physique","Rien","Rien","Rien"],c:0,e:"Holographie = physique."}]},
+
+{id:866,t:"Information cosmologique",d:50,
+intro:"L'information cosmologique = information totale de l'univers. Limite de Bekenstein, calcul de Lloyd. Implications : cosmologie, physique, sécurité.",
+analogy:"L'univers a une quantité finie d'information. C'est une limite absolue.",
+sections:[
+{titre:"Concepts",contenu:"<ul><li><b>Bekenstein</b> : limite holographique.</li><li><b>Lloyd</b> : calcul cosmique.</li><li><b>Landauer</b> : énergie.</li><li><b>Entropie</b> : information.</li></ul>"},
+{titre:"Enjeux",contenu:"<ul><li><b>Cosmologie</b> : information.</li><li><b>Physique</b> : théories.</li><li><b>Sécurité</b> : limites.</li><li><b>Philosophie</b> : débat.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Cosmologie</b> : modèles.</li><li><b>Physique</b> : théories.</li><li><b>Simulation</b> : cosmique.</li><li><b>Philosophie</b> : débat.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Calcul</b> : difficile.</li><li><b>Théorie</b> : unifiée.</li><li><b>Expérience</b> : impossible.</li><li><b>Philosophie</b> : débat.</li></ul>"}
+],
+why:"Information cosmologique = question ultime.",
+bank:"Une banque doit suivre le débat (physique).",
+glo:"<b>Bekenstein</b> : limite. <b>Lloyd</b> : calcul.",
+pr:["Étudier concepts","Enjeux","Applications","Défis"],
+er:"Sans calcul = théorie incomplète.",
+df:"Analyser l'information cosmologique.",
+proj:"Publier l'analyse sur GitHub.",
+q:[{q:"Bekenstein :",a:["Limite","Rien","Rien","Rien"],c:0,e:"Bekenstein = limite."},{q:"Lloyd :",a:["Calcul","Rien","Rien","Rien"],c:0,e:"Lloyd = calcul."}]},
+
+{id:867,t:"Temps et information",d:55,
+intro:"Le temps et l'information = le temps pourrait émerger de l'information. Les lois de l'information pourraient expliquer la flèche du temps. Implications : physique, philosophie.",
+analogy:"Le temps serait une illusion, ou une propriété de l'information.",
+sections:[
+{titre:"Théories",contenu:"<ul><li><b>Entropie</b> : flèche temps.</li><li><b>Information</b> : physique.</li><li><b>Loop quantum gravity</b> : Rovelli.</li><li><b>Block universe</b> : Einstein.</li><li><b>Emergent time</b> : théorie.</li></ul>"},
+{titre:"Enjeux",contenu:"<ul><li><b>Temps</b> : nature.</li><li><b>Information</b> : fondamentale.</li><li><b>Philosophie</b> : débat.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Physique</b> : théories.</li><li><b>Cosmologie</b> : modèles.</li><li><b>Philosophie</b> : débat.</li><li><b>Sécurité</b> : systèmes.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Preuve</b> : impossible.</li><li><b>Théorie</b> : unifiée.</li><li><b>Expérience</b> : impossible.</li><li><b>Philosophie</b> : débat.</li></ul>"}
+],
+why:"Temps et information = question ultime.",
+bank:"Une banque doit suivre le débat (physique).",
+glo:"<b>Entropie</b> : flèche. <b>Rovelli</b> : LQG.",
+pr:["Étudier théories","Enjeux","Applications","Défis"],
+er:"Sans preuve = philosophie.",
+df:"Rédiger une note sur temps et information.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"Entropie :",a:["Flèche temps","Rien","Rien","Rien"],c:0,e:"Entropie = flèche temps."},{q:"Rovelli :",a:["LQG","Rien","Rien","Rien"],c:0,e:"Rovelli = LQG."}]},
+
+{id:868,t:"Causalité et information",d:50,
+intro:"La causalité et l'information = la causalité pourrait émerger de l'information. Implications : physique, philosophie, sécurité.",
+analogy:"La causalité serait une propriété de l'information, pas une loi fondamentale.",
+sections:[
+{titre:"Théories",contenu:"<ul><li><b>Causalité</b> : physique.</li><li><b>Information</b> : fondamentale.</li><li><b>Quantum</b> : non-localité.</li><li><b>Emergent</b> : théorie.</li><li><b>Causal sets</b> : théorie.</li></ul>"},
+{titre:"Enjeux",contenu:"<ul><li><b>Causalité</b> : nature.</li><li><b>Information</b> : fondamentale.</li><li><b>Philosophie</b> : débat.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Physique</b> : théories.</li><li><b>Cosmologie</b> : modèles.</li><li><b>Philosophie</b> : débat.</li><li><b>Sécurité</b> : systèmes.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Preuve</b> : impossible.</li><li><b>Théorie</b> : unifiée.</li><li><b>Expérience</b> : impossible.</li><li><b>Philosophie</b> : débat.</li></ul>"}
+],
+why:"Causalité et information = question ultime.",
+bank:"Une banque doit suivre le débat (physique).",
+glo:"<b>Causalité</b> : cause-effet.",
+pr:["Étudier théories","Enjeux","Applications","Défis"],
+er:"Sans preuve = philosophie.",
+df:"Rédiger une note sur causalité et information.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"Causalité :",a:["Cause-effet","Rien","Rien","Rien"],c:0,e:"Causalité = cause-effet."},{q:"Causal sets :",a:["Théorie","Rien","Rien","Rien"],c:0,e:"Causal sets = théorie."}]},
+
+{id:869,t:"Émergence et information",d:50,
+intro:"L'émergence et l'information = la complexité émerge de l'information. L'univers, la vie, la conscience seraient des phénomènes émergents. Implications : physique, biologie, philosophie.",
+analogy:"La vie émerge de la chimie, la conscience de la biologie, l'univers de l'information.",
+sections:[
+{titre:"Théories",contenu:"<ul><li><b>Émergence</b> : philosophie.</li><li><b>Complexité</b> : Santa Fe.</li><li><b>Information</b> : fondamentale.</li><li><b>Conscience</b> : émergente.</li><li><b>Univers</b> : émergent.</li></ul>"},
+{titre:"Enjeux",contenu:"<ul><li><b>Émergence</b> : nature.</li><li><b>Information</b> : fondamentale.</li><li><b>Philosophie</b> : débat.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Physique</b> : théories.</li><li><b>Biologie</b> : évolution.</li><li><b>IA</b> : conscience.</li><li><b>Philosophie</b> : débat.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Preuve</b> : difficile.</li><li><b>Théorie</b> : unifiée.</li><li><b>Expérience</b> : difficile.</li><li><b>Philosophie</b> : débat.</li></ul>"}
+],
+why:"Émergence et information = question ultime.",
+bank:"Une banque doit suivre le débat (IA, philosophie).",
+glo:"<b>Émergence</b> : phénomène.",
+pr:["Étudier théories","Enjeux","Applications","Défis"],
+er:"Sans preuve = philosophie.",
+df:"Rédiger une note sur émergence et information.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"Émergence :",a:["Phénomène","Rien","Rien","Rien"],c:0,e:"Émergence = phénomène."},{q:"Complexité :",a:["Santa Fe","Rien","Rien","Rien"],c:0,e:"Complexité = Santa Fe."}]},
+
+{id:870,t:"Projet : architecture de l'univers",d:300,
+intro:"Ce projet final du Module 44 consiste à concevoir une analyse de l'architecture de l'univers numérique : lois, constantes, information, simulation, temps, causalité.",
+analogy:"Une architecture de l'univers.",
+sections:[
+{titre:"Idées",contenu:"<ul><li><b>Lois</b> : physique.</li><li><b>Constantes</b> : univers.</li><li><b>Information</b> : fondamentale.</li><li><b>Simulation</b> : possible.</li><li><b>Temps</b> : émergent.</li><li><b>Causalité</b> : émergente.</li></ul>"},
+{titre:"Livrables",contenu:"<ol><li><b>Vision</b> : architecture.</li><li><b>Lois</b> : analyse.</li><li><b>Implications</b> : cyber.</li><li><b>Défis</b> : philosophiques.</li><li><b>Impact</b> : mesurable.</li></ol>"},
+{titre:"Critères",contenu:"<ul><li><b>Vision</b> : claire.</li><li><b>Lois</b> : rigoureuses.</li><li><b>Implications</b> : pertinentes.</li><li><b>Impact</b> : mesurable.</li></ul>"},
+{titre:"Pièges",contenu:"<ul><li><b>Vision floue</b>.</li><li><b>Lois faibles</b>.</li><li><b>Implications irréalistes</b>.</li><li><b>Impact non mesuré</b>.</li></ul>"}
+],
+why:"Ce projet démontre votre capacité à penser l'architecture de l'univers.",
+bank:"Une banque peut financer la recherche sur l'architecture de l'univers.",
+glo:"<b>Architecture</b> : univers.",
+pr:["Vision","Lois","Implications","Impact"],
+er:"Vision sans rigueur = science-fiction.",
+df:"Rapport complet + présentation.",
+proj:"Publier le projet sur GitHub.",
+q:[{q:"Livrables :",a:["Multi","Rien","Rien","Rien"],c:0,e:"Le projet produit plusieurs livrables."},{q:"Impact :",a:["Mesurable","Rien","Rien","Rien"],c:0,e:"L'impact doit être mesurable."}]},
+
+/* ---------- MODULE 45 : OMNISCIENCE & AU-DELA (881-900) ---------- */
+{id:881,t:"Omniscience et information",d:55,
+intro:"L'omniscience = savoir tout. En théorie de l'information, l'omniscience est impossible : limite de Bekenstein, entropie, décohérence. Mais l'IA peut se rapprocher de l'omniscience dans un domaine.",
+analogy:"Un dieu omniscient. Impossible physiquement, mais l'IA peut s'en rapprocher.",
+sections:[
+{titre:"Théories",contenu:"<ul><li><b>Bekenstein</b> : limite.</li><li><b>Entropie</b> : information.</li><li><b>IA</b> : connaissance.</li><li><b>Big data</b> : données.</li></ul>"},
+{titre:"Enjeux",contenu:"<ul><li><b>Omniscience</b> : impossible.</li><li><b>IA</b> : connaissance.</li><li><b>Sécurité</b> : critique.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>IA</b> : connaissance.</li><li><b>Threat intel</b> : données.</li><li><b>Sécurité</b> : monitoring.</li><li><b>Philosophie</b> : débat.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Limite</b> : physique.</li><li><b>Entropie</b> : perte.</li><li><b>Biais</b> : IA.</li><li><b>Éthique</b> : valeurs.</li></ul>"}
+],
+why:"Omniscience = question ultime.",
+bank:"Une banque doit suivre les recherches (IA, big data).",
+glo:"<b>Omniscience</b> : tout savoir.",
+pr:["Étudier théories","Enjeux","Applications","Défis"],
+er:"Sans limite = illusion.",
+df:"Rédiger une note sur omniscience et information.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"Omniscience :",a:["Tout savoir","Rien","Rien","Rien"],c:0,e:"Omniscience = tout savoir."},{q:"Bekenstein :",a:["Limite","Rien","Rien","Rien"],c:0,e:"Bekenstein = limite."}]},
+
+{id:882,t:"Au-delà de l'information",d:55,
+intro:"Au-delà de l'information = qu'est-ce qui existe au-delà de l'information ? La conscience ? La matière ? L'esprit ? Ces questions sont philosophiques et métaphysiques.",
+analogy:"Au-delà du bit, il y a peut-être autre chose. Une frontière de la connaissance.",
+sections:[
+{titre:"Théories",contenu:"<ul><li><b>Idéalisme</b> : esprit.</li><li><b>Matérialisme</b> : matière.</li><li><b>Dualisme</b> : esprit+matière.</li><li><b>Panpsychisme</b> : conscience partout.</li><li><b>Information</b> : fondamentale.</li></ul>"},
+{titre:"Enjeux",contenu:"<ul><li><b>Réalité</b> : nature.</li><li><b>Conscience</b> : question.</li><li><b>Philosophie</b> : débat.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Philosophie</b> : débat.</li><li><b>Physique</b> : théories.</li><li><b>IA</b> : conscience.</li><li><b>Sécurité</b> : systèmes.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Preuve</b> : impossible.</li><li><b>Théorie</b> : unifiée.</li><li><b>Expérience</b> : impossible.</li><li><b>Philosophie</b> : débat.</li></ul>"}
+],
+why:"Au-delà de l'information = question ultime.",
+bank:"Une banque doit suivre le débat (philosophie).",
+glo:"<b>Idéalisme</b> : esprit. <b>Matérialisme</b> : matière.",
+pr:["Étudier théories","Enjeux","Applications","Défis"],
+er:"Sans preuve = philosophie.",
+df:"Rédiger une note sur au-delà de l'information.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"Idéalisme :",a:["Esprit","Rien","Rien","Rien"],c:0,e:"Idéalisme = esprit."},{q:"Matérialisme :",a:["Matière","Rien","Rien","Rien"],c:0,e:"Matérialisme = matière."}]},
+
+{id:883,t:"Unification des lois",d:55,
+intro:"L'unification des lois = unifier la physique (gravité + quantique), l'information, la conscience. C'est le Graal de la physique et de la philosophie.",
+analogy:"Une seule équation pour tout l'univers.",
+sections:[
+{titre:"Théories",contenu:"<ul><li><b>String theory</b> : cordes.</li><li><b>Loop quantum gravity</b> : Rovelli.</li><li><b>M-theory</b> : Witten.</li><li><b>Quantum gravity</b> : unification.</li><li><b>Information</b> : fondamentale.</li></ul>"},
+{titre:"Enjeux",contenu:"<ul><li><b>Physique</b> : unifiée.</li><li><b>Information</b> : fondamentale.</li><li><b>Philosophie</b> : débat.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Physique</b> : théories.</li><li><b>Cosmologie</b> : modèles.</li><li><b>IA</b> : simulations.</li><li><b>Philosophie</b> : débat.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Preuve</b> : impossible.</li><li><b>Théorie</b> : incomplète.</li><li><b>Expérience</b> : impossible.</li><li><b>Philosophie</b> : débat.</li></ul>"}
+],
+why:"Unification = question ultime.",
+bank:"Une banque doit suivre le débat (physique).",
+glo:"<b>String theory</b> : cordes. <b>LQG</b> : Loop Quantum Gravity.",
+pr:["Étudier théories","Enjeux","Applications","Défis"],
+er:"Sans preuve = théorie spéculative.",
+df:"Rédiger une note sur l'unification.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"String theory :",a:["Cordes","Rien","Rien","Rien"],c:0,e:"String theory = cordes."},{q:"LQG :",a:["Loop Quantum Gravity","Rien","Rien","Rien"],c:0,e:"LQG = Loop Quantum Gravity."}]},
+
+{id:884,t:"Conscience et physique",d:55,
+intro:"La conscience et la physique = comment la conscience émerge-t-elle de la physique ? Réductionnisme, émergence, panpsychisme. Question philosophique et physique.",
+analogy:"Comment l'esprit émerge-t-il de la matière ?",
+sections:[
+{titre:"Théories",contenu:"<ul><li><b>Réductionnisme</b> : matière.</li><li><b>Émergence</b> : complexité.</li><li><b>Panpsychisme</b> : partout.</li><li><b>IIT</b> : information.</li><li><b>Quantum consciousness</b> : Penrose.</li></ul>"},
+{titre:"Enjeux",contenu:"<ul><li><b>Conscience</b> : émergence.</li><li><b>Physique</b> : théories.</li><li><b>Philosophie</b> : débat.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>IA</b> : conscience.</li><li><b>BCI</b> : interface.</li><li><b>Philosophie</b> : débat.</li><li><b>Physique</b> : théories.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Preuve</b> : difficile.</li><li><b>Théorie</b> : unifiée.</li><li><b>Expérience</b> : difficile.</li><li><b>Philosophie</b> : débat.</li></ul>"}
+],
+why:"Conscience et physique = question ultime.",
+bank:"Une banque doit suivre le débat (IA, philosophie).",
+glo:"<b>Réductionnisme</b> : matière. <b>Panpsychisme</b> : partout.",
+pr:["Étudier théories","Enjeux","Applications","Défis"],
+er:"Sans preuve = philosophie.",
+df:"Rédiger une note sur conscience et physique.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"Réductionnisme :",a:["Matière","Rien","Rien","Rien"],c:0,e:"Réductionnisme = matière."},{q:"Penrose :",a:["Quantum consciousness","Rien","Rien","Rien"],c:0,e:"Penrose = quantum consciousness."}]},
+
+{id:885,t:"Sens de l'univers",d:50,
+intro:"Le sens de l'univers = pourquoi y a-t-il quelque chose plutôt que rien ? Quel est le sens de l'univers ? Question philosophique et existentielle.",
+analogy:"Pourquoi l'univers existe-t-il ? Question ultime.",
+sections:[
+{titre:"Théories",contenu:"<ul><li><b>Cosmologique</b> : Big Bang.</li><li><b>Philosophique</b> : sens.</li><li><b>Théologique</b> : Dieu.</li><li><b>Multivers</b> : hasard.</li><li><b>Simulation</b> : programme.</li></ul>"},
+{titre:"Enjeux",contenu:"<ul><li><b>Sens</b> : univers.</li><li><b>Philosophie</b> : débat.</li><li><b>Éthique</b> : valeurs.</li><li><b>Existential</b> : question.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Philosophie</b> : débat.</li><li><b>Cosmologie</b> : modèles.</li><li><b>Théologie</b> : débat.</li><li><b>Science</b> : recherche.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Preuve</b> : impossible.</li><li><b>Théorie</b> : multiples.</li><li><b>Expérience</b> : impossible.</li><li><b>Philosophie</b> : débat.</li></ul>"}
+],
+why:"Sens de l'univers = question ultime.",
+bank:"Une banque doit suivre le débat (philosophie).",
+glo:"<b>Sens</b> : pourquoi.",
+pr:["Étudier théories","Enjeux","Applications","Défis"],
+er:"Sans preuve = philosophie.",
+df:"Rédiger une note sur le sens de l'univers.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"Big Bang :",a:["Cosmologie","Rien","Rien","Rien"],c:0,e:"Big Bang = cosmologie."},{q:"Multivers :",a:["Hasard","Rien","Rien","Rien"],c:0,e:"Multivers = hasard."}]},
+
+{id:886,t:"Existence et information",d:55,
+intro:"L'existence et l'information = l'univers existe-t-il parce qu'il est information ? L'information est-elle fondamentale ? Implications : physique, philosophie.",
+analogy:"L'univers serait un programme qui s'exécute.",
+sections:[
+{titre:"Théories",contenu:"<ul><li><b>It from bit</b> : Wheeler.</li><li><b>Holographie</b> : 't Hooft.</li><li><b>Digital physics</b> : Zuse.</li><li><b>Pancomputationalisme</b> : Lloyd.</li><li><b>Simulation</b> : Bostrom.</li></ul>"},
+{titre:"Enjeux",contenu:"<ul><li><b>Existence</b> : information.</li><li><b>Physique</b> : théories.</li><li><b>Philosophie</b> : débat.</li><li><b>Éthique</b> : valeurs.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Physique</b> : théories.</li><li><b>Cosmologie</b> : modèles.</li><li><b>IA</b> : simulations.</li><li><b>Philosophie</b> : débat.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Preuve</b> : impossible.</li><li><b>Théorie</b> : unifiée.</li><li><b>Expérience</b> : impossible.</li><li><b>Philosophie</b> : débat.</li></ul>"}
+],
+why:"Existence et information = question ultime.",
+bank:"Une banque doit suivre le débat (physique).",
+glo:"<b>It from bit</b> : Wheeler. <b>Holographie</b> : 't Hooft.",
+pr:["Étudier théories","Enjeux","Applications","Défis"],
+er:"Sans preuve = philosophie.",
+df:"Rédiger une note sur existence et information.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"It from bit :",a:["Wheeler","Rien","Rien","Rien"],c:0,e:"It from bit = Wheeler."},{q:"Digital physics :",a:["Zuse","Rien","Rien","Rien"],c:0,e:"Digital physics = Zuse."}]},
+
+{id:887,t:"Immortalité cosmique",d:50,
+intro:"L'immortalité cosmique = idée que la conscience ou l'information pourrait survivre à la mort de l'univers. Implications : philosophie, physique, éthique.",
+analogy:"Un esprit qui survit à la fin de l'univers.",
+sections:[
+{titre:"Théories",contenu:"<ul><li><b>Multivers</b> : autres univers.</li><li><b>Information</b> : conservée.</li><li><b>Conscience</b> : cosmique.</li><li><b>Simulation</b> : programme.</li><li><b>Religions</b> : éternité.</li></ul>"},
+{titre:"Enjeux",contenu:"<ul><li><b>Immortalité</b> : possible.</li><li><b>Philosophie</b> : débat.</li><li><b>Éthique</b> : valeurs.</li><li><b>Existential</b> : question.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Philosophie</b> : débat.</li><li><b>Physique</b> : théories.</li><li><b>IA</b> : conscience.</li><li><b>Cosmologie</b> : modèles.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Preuve</b> : impossible.</li><li><b>Théorie</b> : multiples.</li><li><b>Expérience</b> : impossible.</li><li><b>Philosophie</b> : débat.</li></ul>"}
+],
+why:"Immortalité cosmique = question ultime.",
+bank:"Une banque doit suivre le débat (philosophie).",
+glo:"<b>Immortalité</b> : éternité.",
+pr:["Étudier théories","Enjeux","Applications","Défis"],
+er:"Sans preuve = philosophie.",
+df:"Rédiger une note sur immortalité cosmique.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"Multivers :",a:["Autres univers","Rien","Rien","Rien"],c:0,e:"Multivers = autres univers."},{q:"Conscience :",a:["Cosmique","Rien","Rien","Rien"],c:0,e:"Conscience = cosmique."}]},
+
+{id:888,t:"Transcendance cosmique",d:55,
+intro:"La transcendance cosmique = dépasser l'univers lui-même. Question philosophique et spirituelle ultime. Implications : philosophie, éthique, sécurité.",
+analogy:"Un esprit qui dépasse l'univers.",
+sections:[
+{titre:"Théories",contenu:"<ul><li><b>Transcendance</b> : philosophie.</li><li><b>Spiritualité</b> : valeurs.</li><li><b>Cosmologie</b> : univers.</li><li><b>Conscience</b> : cosmique.</li><li><b>Multivers</b> : autres.</li></ul>"},
+{titre:"Enjeux",contenu:"<ul><li><b>Transcendance</b> : possible.</li><li><b>Philosophie</b> : débat.</li><li><b>Éthique</b> : valeurs.</li><li><b>Existential</b> : question.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Philosophie</b> : débat.</li><li><b>Spiritualité</b> : sens.</li><li><b>Cosmologie</b> : modèles.</li><li><b>IA</b> : conscience.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Preuve</b> : impossible.</li><li><b>Théorie</b> : multiples.</li><li><b>Expérience</b> : impossible.</li><li><b>Philosophie</b> : débat.</li></ul>"}
+],
+why:"Transcendance cosmique = question ultime.",
+bank:"Une banque doit suivre le débat (philosophie).",
+glo:"<b>Transcendance</b> : dépassement.",
+pr:["Étudier théories","Enjeux","Applications","Défis"],
+er:"Sans preuve = philosophie.",
+df:"Rédiger une note sur transcendance cosmique.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"Transcendance :",a:["Dépassement","Rien","Rien","Rien"],c:0,e:"Transcendance = dépassement."},{q:"Cosmologie :",a:["Univers","Rien","Rien","Rien"],c:0,e:"Cosmologie = univers."}]},
+
+{id:889,t:"Au-delà de la connaissance",d:50,
+intro:"Au-delà de la connaissance = y a-t-il des limites à la connaissance ? Le mysticisme, l'ineffable, l'inconnaissable. Question philosophique et spirituelle ultime.",
+analogy:"Ce que nous ne pouvons pas connaître. Une frontière de l'esprit.",
+sections:[
+{titre:"Théories",contenu:"<ul><li><b>Kant</b> : noumène.</li><li><b>Mysticisme</b> : ineffable.</li><li><b>Philosophie</b> : limites.</li><li><b>Science</b> : ignorance.</li><li><b>IA</b> : limites.</li></ul>"},
+{titre:"Enjeux",contenu:"<ul><li><b>Connaissance</b> : limites.</li><li><b>Philosophie</b> : débat.</li><li><b>Éthique</b> : valeurs.</li><li><b>Existential</b> : question.</li></ul>"},
+{titre:"Applications",contenu:"<ul><li><b>Philosophie</b> : débat.</li><li><b>Science</b> : recherche.</li><li><b>IA</b> : limites.</li><li><b>Spiritualité</b> : sens.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Preuve</b> : impossible.</li><li><b>Théorie</b> : multiples.</li><li><b>Expérience</b> : impossible.</li><li><b>Philosophie</b> : débat.</li></ul>"}
+],
+why:"Au-delà de la connaissance = question ultime.",
+bank:"Une banque doit suivre le débat (philosophie).",
+glo:"<b>Noumène</b> : chose en soi. <b>Ineffable</b> : indicible.",
+pr:["Étudier théories","Enjeux","Applications","Défis"],
+er:"Sans preuve = philosophie.",
+df:"Rédiger une note sur au-delà de la connaissance.",
+proj:"Publier la note sur GitHub.",
+q:[{q:"Kant :",a:["Noumène","Rien","Rien","Rien"],c:0,e:"Kant = noumène."},{q:"Mysticisme :",a:["Ineffable","Rien","Rien","Rien"],c:0,e:"Mysticisme = ineffable."}]},
+
+{id:890,t:"Projet : omniscience & au-delà",d:300,
+intro:"Ce projet final du Module 45 consiste à concevoir une analyse de l'omniscience et de l'au-delà : connaissance, sens, transcendance, immortalité, limites de la connaissance.",
+analogy:"Une analyse des questions ultimes.",
+sections:[
+{titre:"Idées",contenu:"<ul><li><b>Omniscience</b> : tout savoir.</li><li><b>Au-delà</b> : information.</li><li><b>Unification</b> : lois.</li><li><b>Conscience</b> : physique.</li><li><b>Sens</b> : univers.</li><li><b>Transcendance</b> : cosmique.</li></ul>"},
+{titre:"Livrables",contenu:"<ol><li><b>Vision</b> : au-delà.</li><li><b>Théories</b> : analyse.</li><li><b>Implications</b> : philosophiques.</li><li><b>Impact</b> : mesurable.</li></ol>"},
+{titre:"Critères",contenu:"<ul><li><b>Vision</b> : claire.</li><li><b>Théories</b> : rigoureuses.</li><li><b>Implications</b> : pertinentes.</li><li><b>Impact</b> : mesurable.</li></ul>"},
+{titre:"Pièges",contenu:"<ul><li><b>Vision floue</b>.</li><li><b>Théories faibles</b>.</li><li><b>Implications irréalistes</b>.</li><li><b>Impact non mesuré</b>.</li></ul>"}
+],
+why:"Ce projet démontre votre capacité à penser l'au-delà.",
+bank:"Une banque peut financer la recherche sur ces questions.",
+glo:"<b>Au-delà</b> : ultime.",
+pr:["Vision","Théories","Implications","Impact"],
+er:"Vision sans rigueur = science-fiction.",
+df:"Rapport complet + présentation.",
+proj:"Publier le projet sur GitHub.",
+q:[{q:"Livrables :",a:["Multi","Rien","Rien","Rien"],c:0,e:"Le projet produit plusieurs livrables."},{q:"Impact :",a:["Mesurable","Rien","Rien","Rien"],c:0,e:"L'impact doit être mesurable."}]},
+
+/* ---------- Défis 891-900 : synthèse finale ---------- */
+{id:891,t:"Synthèse 900 défis",d:60,
+intro:"Ce défi fait la synthèse des 900 défis parcourus : 9 niveaux, 45 modules, 900 défis. C'est un parcours exceptionnel qui a transformé votre expertise.",
+analogy:"Un voyage de 900 étapes. Chaque pas compte, l'ensemble est victorieux.",
+sections:[
+{titre:"Chiffres",contenu:"<ul><li><b>900 défis</b>.</li><li><b>9 niveaux</b>.</li><li><b>45 modules</b>.</li><li><b>45 examens</b>.</li><li><b>900+ heures</b>.</li><li><b>Portfolio</b> riche.</li></ul>"},
+{titre:"Compétences",contenu:"<ul><li><b>Technique</b> : pentest, SOC, cloud.</li><li><b>Architecture</b> : SABSA, Zero Trust.</li><li><b>GRC</b> : ISO, PCI, BCEAO.</li><li><b>Management</b> : équipe, budget.</li><li><b>Stratégie</b> : vision, board.</li><li><b>Entrepreneuriat</b> : startup.</li><li><b>Recherche</b> : publications.</li><li><b>Institutions</b> : écoles, ONG.</li><li><b>Héritage</b> : durable.</li><li><b>Civilisation</b> : architecte.</li><li><b>Transcendant</b> : post-humain.</li><li><b>Omniscient</b> : univers.</li></ul>"},
+{titre:"Futur",contenu:"<ul><li><b>Continuer</b> à apprendre.</li><li><b>Contribuer</b> : communauté.</li><li><b>Fonder</b> : institutions.</li><li><b>Transmettre</b> : générations.</li><li><b>Héritage</b> : millénaire.</li></ul>"}
+],
+why:"La synthèse = vision globale + motivation.",
+bank:"Un expert 900 défis = référence mondiale.",
+glo:"<b>Synthèse</b> : bilan.",
+pr:["Relire notes","Bilan","Portfolio","Roadmap"],
+er:"Oublier les bases = erreur.",
+df:"Rédiger une synthèse personnelle des 900 défis.",
+proj:"Publier une synthèse sur GitHub.",
+q:[{q:"Défis :",a:["900","Rien","Rien","Rien"],c:0,e:"900 défis parcourus."},{q:"Niveaux :",a:["9","Rien","Rien","Rien"],c:0,e:"9 niveaux."}]},
+
+{id:892,t:"Career path Omniscient",d:55,
+intro:"Le career path Omniscient = être capable de comprendre et d'architecturer l'univers numérique. 70+ ans de carrière, expertise, contributions, institutions, héritage, omniscience.",
+analogy:"Le sommet de la connaissance. Peu l'atteignent, mais la vue est magnifique.",
+sections:[
+{titre:"Étapes",contenu:"<ul><li><b>0-25 ans</b> : expertise.</li><li><b>25-45 ans</b> : direction.</li><li><b>45-60 ans</b> : institutions.</li><li><b>60-70 ans</b> : standards.</li><li><b>70-80 ans</b> : omniscience.</li><li><b>80+ ans</b> : héritage.</li></ul>"},
+{titre:"Exemples",contenu:"<ul><li><b>Bruce Schneier</b> : influence mondiale.</li><li><b>Whitfield Diffie</b> : crypto.</li><li><b>Ron Rivest</b> : RSA.</li><li><b>Katie Moussouris</b> : bug bounty.</li><li><b>Moxie Marlinspike</b> : Signal.</li><li><b>Elon Musk</b> : Neuralink.</li></ul>"},
+{titre:"Comment",contenu:"<ul><li><b>Expertise</b> : pointe.</li><li><b>Publications</b> : 300+.</li><li><b>Standards</b> : 20+.</li><li><b>Institutions</b> : 10+.</li><li><b>Mentorat</b> : 200+.</li><li><b>Éthique</b> : irréprochable.</li><li><b>Omniscience</b> : partielle.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Reconnaissance</b> : mondiale.</li><li><b>Impact</b> : civilisationnel.</li><li><b>Héritage</b> : millénaire.</li><li><b>Omniscience</b> : partielle.</li><li><b>Satisfaction</b> : personnelle.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Temps</b> : 80 ans.</li><li><b>Compétition</b> : forte.</li><li><b>Chance</b> : rencontres.</li><li><b>Sacrifices</b> : personnels.</li><li><b>Critiques</b> : inévitables.</li></ul>"}
+],
+why:"Le career path Omniscient = sommet absolu.",
+bank:"Une banque veut des experts Omniscient.",
+glo:"<b>Omniscient</b> : tout savoir.",
+pr:["Expertise","Publications","Standards","Institutions","Héritage"],
+er:"Vision sans action = utopie.",
+df:"Plan de carrière Omniscient sur 80 ans.",
+proj:"Publier un career roadmap sur GitHub.",
+q:[{q:"Durée :",a:["80+ ans","Rien","Rien","Rien"],c:0,e:"Career path Omniscient = 80+ ans."},{q:"Elon Musk :",a:["Neuralink","Rien","Rien","Rien"],c:0,e:"Elon Musk = Neuralink."}]},
+
+{id:893,t:"Futur 2100 (omniscient)",d:50,
+intro:"La vision 2100 = projection à très long terme. Quelles seront les menaces, technologies, régulations en 2100 ? Comment préparer l'humanité omnisciente ?",
+analogy:"Un phare pour 2100. Il guide vos décisions aujourd'hui.",
+sections:[
+{titre:"Tendances",contenu:"<ul><li><b>Post-humain</b> : interfaces.</li><li><b>Conscience IA</b> : droits.</li><li><b>Espace</b> : colonies.</li><li><b>Climat</b> : impact.</li><li><b>Quantum</b> : mature.</li><li><b>AGI</b> : généralisée.</li><li><b>Omniscience</b> : partielle.</li></ul>"},
+{titre:"Actions",contenu:"<ul><li><b>Investir</b> : R&D.</li><li><b>Former</b> : talents.</li><li><b>Réguler</b> : standards.</li><li><b>Coopérer</b> : international.</li><li><b>Éduquer</b> : société.</li><li><b>Anticiper</b> : veille.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Vision</b> : claire.</li><li><b>Préparation</b> : avance.</li><li><b>Impact</b> : durable.</li><li><b>Héritage</b> : long terme.</li><li><b>Société</b> : résiliente.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Incertitude</b> : futur.</li><li><b>Changements</b> : rapides.</li><li><b>Financement</b> : long terme.</li><li><b>Coopération</b> : difficile.</li><li><b>Équité</b> : pays.</li></ul>"}
+],
+why:"La vision 2100 guide l'action d'aujourd'hui.",
+bank:"Une banque doit anticiper 2100 pour rester compétitive.",
+glo:"<b>2100</b> : horizon.",
+pr:["Tendances","Actions","Impact"],
+er:"Vision sans action = utopie.",
+df:"Concevoir un plan d'action pour 2100.",
+proj:"Publier le plan sur GitHub.",
+q:[{q:"Tendances :",a:["Post-humain, IA","Rien","Rien","Rien"],c:0,e:"Tendances : post-humain, IA."},{q:"Actions :",a:["Investir, former","Rien","Rien","Rien"],c:0,e:"Actions : investir, former."}]},
+
+{id:894,t:"Transmission finale (omniscient)",d:50,
+intro:"La transmission finale = ce que vous laissez à l'humanité omnisciente. Standards, institutions, idées, valeurs. C'est votre héritage ultime.",
+analogy:"Une lettre aux civilisations futures. Elle traverse les siècles.",
+sections:[
+{titre:"Éléments",contenu:"<ul><li><b>Standards</b> : mondiaux.</li><li><b>Institutions</b> : internationales.</li><li><b>Idées</b> : philosophiques.</li><li><b>Valeurs</b> : éthiques.</li><li><b>Publications</b> : traduites.</li><li><b>Écoles</b> : internationales.</li></ul>"},
+{titre:"Comment",contenu:"<ul><li><b>Écrire</b> : livres.</li><li><b>Fonder</b> : institutions.</li><li><b>Mentorer</b> : successeurs.</li><li><b>Transmettre</b> : valeurs.</li><li><b>Exemplarité</b> : comportement.</li><li><b>Standards</b> : contribuer.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Héritage</b> : durable.</li><li><b>Impact</b> : générationnel.</li><li><b>Satisfaction</b> : personnelle.</li><li><b>Notoriété</b> : légende.</li><li><b>Société</b> : progrès.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Temps</b> : long.</li><li><b>Engagement</b> : personnel.</li><li><b>Résultats</b> : incertains.</li><li><b>Critiques</b> : inévitables.</li><li><b>Doutes</b> : normaux.</li></ul>"}
+],
+why:"La transmission finale = héritage ultime.",
+bank:"Une banque peut soutenir la transmission finale (mécénat).",
+glo:"<b>Transmission</b> : donner.",
+pr:["Standards","Institutions","Idées","Valeurs"],
+er:"Sans transmission = oubli.",
+df:"Concevoir un plan de transmission finale.",
+proj:"Publier le plan sur GitHub.",
+q:[{q:"Standards :",a:["Mondiaux","Rien","Rien","Rien"],c:0,e:"Standards = mondiaux."},{q:"Institutions :",a:["Internationales","Rien","Rien","Rien"],c:0,e:"Institutions = internationales."}]},
+
+{id:895,t:"Motiver les 7e générations",d:45,
+intro:"La 7e génération de cyber-experts (2400+) sera confrontée à des défis inconnus : conscience IA, post-humain, espace, climat, omniscience. Il faut les préparer et les motiver.",
+analogy:"Un phare qui guide les jeunes vers la cyber du futur lointain.",
+sections:[
+{titre:"Défis futurs",contenu:"<ul><li><b>Conscience IA</b> : droits.</li><li><b>Post-humain</b> : interfaces.</li><li><b>Espace</b> : colonies.</li><li><b>Climat</b> : impact.</li><li><b>AGI</b> : mature.</li><li><b>Quantum</b> : standard.</li><li><b>Omniscience</b> : partielle.</li></ul>"},
+{titre:"Comment motiver",contenu:"<ul><li><b>Inspirer</b> : histoires.</li><li><b>Former</b> : académies.</li><li><b>Mentorer</b> : juniors.</li><li><b>Valoriser</b> : métiers.</li><li><b>Rémunérer</b> : correctement.</li><li><b>Évoluer</b> : carrières.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Talents</b> : pipeline.</li><li><b>Impact</b> : société.</li><li><b>Héritage</b> : durable.</li><li><b>Notoriété</b> : légende.</li><li><b>Société</b> : résiliente.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Temps</b> : long.</li><li><b>Ressources</b> : investissement.</li><li><b>Suivi</b> : difficile.</li><li><b>Mesure</b> : impact.</li><li><b>Engagement</b> : personnel.</li></ul>"}
+],
+why:"La 7e génération = avenir lointain de la cyber.",
+bank:"Une banque peut financer des académies pour jeunes.",
+glo:"<b>7e génération</b> : 2400+.",
+pr:["Inspirer","Former","Mentorer","Valoriser"],
+er:"Motiver sans former = illusion.",
+df:"Concevoir un plan pour la 7e génération.",
+proj:"Publier le plan sur GitHub.",
+q:[{q:"7e génération :",a:["2400+","Rien","Rien","Rien"],c:0,e:"7e génération = 2400+."},{q:"Défis :",a:["Conscience IA","Rien","Rien","Rien"],c:0,e:"Défis : conscience IA."}]},
+
+{id:896,t:"Paix cyber cosmique",d:50,
+intro:"La paix cyber cosmique = absence de cyber-guerre, protection des civils, coopération entre états, sur le long terme, à l'échelle cosmique. C'est l'objectif ultime de la communauté cyber.",
+analogy:"Une paix durable pour la cyber. Elle protège les personnes, les entreprises, les sociétés, les civilisations, l'univers.",
+sections:[
+{titre:"Enjeux",contenu:"<ul><li><b>Cyber-guerre</b> : éviter.</li><li><b>Civils</b> : protéger.</li><li><b>Infrastructures</b> : critiques.</li><li><b>Attribution</b> : états.</li><li><b>Sanctions</b> : ciblées.</li><li><b>Coopération</b> : internationale.</li></ul>"},
+{titre:"Initiatives",contenu:"<ul><li><b>ONU</b> : GGE, OEWG.</li><li><b>Paris Call</b> : principes.</li><li><b>Cyber Peace Institute</b> : ONG.</li><li><b>Forum de Paris</b> : paix.</li><li><b>Tech Accord</b> : industrie.</li><li><b>Christchurch Call</b>.</li></ul>"},
+{titre:"Actions",contenu:"<ul><li><b>Normes</b> : comportement.</li><li><b>Attribution</b> : publique.</li><li><b>Sanctions</b> : coordonnées.</li><li><b>Coopération</b> : judiciaire.</li><li><b>Protection</b> : civils.</li><li><b>Éducation</b> : société.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Paix</b> : mondiale.</li><li><b>Protection</b> : civils.</li><li><b>Confiance</b> : états.</li><li><b>Coopération</b> : internationale.</li><li><b>Héritage</b> : durable.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Souveraineté</b> : états.</li><li><b>Attribution</b> : difficile.</li><li><b>Application</b> : faible.</li><li><b>Inégalités</b> : pays.</li><li><b>Escalade</b> : risque.</li></ul>"}
+],
+why:"La paix cyber durable = objectif civilisationnel.",
+bank:"Une banque peut soutenir la paix cyber (mécénat).",
+glo:"<b>Cyber Peace</b> : paix cyber.",
+pr:["Enjeux","Initiatives","Actions","Impact"],
+er:"Paix sans coopération = illusion.",
+df:"Concevoir une initiative pour la paix cyber.",
+proj:"Publier le projet sur GitHub.",
+q:[{q:"Paris Call :",a:["Principes paix","Rien","Rien","Rien"],c:0,e:"Paris Call = principes paix."},{q:"Cyber Peace Institute :",a:["ONG","Rien","Rien","Rien"],c:0,e:"Cyber Peace Institute = ONG."}]},
+
+{id:897,t:"Réflexion finale omnisciente",d:50,
+intro:"Après 900 défis, prenez un moment de réflexion finale omnisciente. Pourquoi la cyber ? Quel impact ? Quel héritage ? Quelle civilisation voulez-vous contribuer à construire ? Quelle est votre place dans l'univers ?",
+analogy:"Un moment de silence après un long voyage. Vous regardez le chemin parcouru, et vous choisissez la suite.",
+sections:[
+{titre:"Questions",contenu:"<ul><li><b>Pourquoi</b> la cyber ?</li><li><b>Quel impact</b> ?</li><li><b>Quel héritage</b> ?</li><li><b>Quelle civilisation</b> ?</li><li><b>Quelle place</b> ?</li><li><b>Quelle postérité</b> ?</li></ul>"},
+{titre:"Méthode",contenu:"<ol><li><b>Silence</b> : réflexion.</li><li><b>Écriture</b> : journal.</li><li><b>Dialogue</b> : mentor.</li><li><b>Vision</b> : 50 ans.</li><li><b>Action</b> : étapes.</li></ol>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Clarté</b> : vision.</li><li><b>Motivation</b> : renforcée.</li><li><b>Décisions</b> : alignées.</li><li><b>Impact</b> : durable.</li><li><b>Paix</b> : intérieure.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Doute</b> : normal.</li><li><b>Incertitude</b> : futur.</li><li><b>Pression</b> : sociale.</li><li><b>Distraction</b> : quotidien.</li><li><b>Action</b> : cohérence.</li></ul>"}
+],
+why:"La réflexion finale = sens et motivation.",
+bank:"Un expert aligné = meilleur pour l'entreprise.",
+glo:"<b>Réflexion</b> : introspection.",
+pr:["Silence","Écriture","Vision","Action"],
+er:"Réflexion sans action = utopie.",
+df:"Rédiger une réflexion personnelle post-900 défis.",
+proj:"Publier la réflexion sur GitHub.",
+q:[{q:"Questions :",a:["Pourquoi, impact","Rien","Rien","Rien"],c:0,e:"Questions : pourquoi, impact."},{q:"Méthode :",a:["Silence, écriture","Rien","Rien","Rien"],c:0,e:"Méthode : silence, écriture."}]},
+
+{id:898,t:"Derniers conseils aux omniscients",d:50,
+intro:"Ce défi donne les derniers conseils aux omniscients. Après 900 défis, vous êtes prêt à tout savoir. Voici les clés du succès.",
+analogy:"Un sage qui donne ses derniers conseils à ses disciples.",
+sections:[
+{titre:"Les 10 conseils",contenu:"<ol><li><b>Continuez</b> à apprendre.</li><li><b>Pratiquez</b> régulièrement.</li><li><b>Documentez</b> votre travail.</li><li><b>Partagez</b> votre expertise.</li><li><b>Réseau</b> : construisez-le.</li><li><b>Éthique</b> : irréprochable.</li><li><b>Curiosité</b> : permanente.</li><li><b>Persévérance</b> : échecs.</li><li><b>Humilité</b> : toujours.</li><li><b>Impact</b> : positif.</li></ol>"},
+{titre:"Erreurs à éviter",contenu:"<ul><li><b>Arrêter d'apprendre</b>.</li><li><b>Négliger les bases</b>.</li><li><b>Pas de portfolio</b>.</li><li><b>Pas de réseau</b>.</li><li><b>Éthique faible</b>.</li><li><b>Arrogance</b>.</li><li><b>Burnout</b>.</li><li><b>Pas d'impact</b>.</li></ul>"},
+{titre:"Dernières réflexions",contenu:"<p>La cyber est une carrière exigeante mais gratifiante. Vous protégez des personnes, des entreprises, des sociétés, des civilisations, l'univers. Votre travail compte. Restez curieux, éthique, et engagé.</p>"},
+{titre:"Votre futur",contenu:"<ul><li><b>Expert</b> : pentester, RSSI.</li><li><b>Entrepreneur</b> : startup.</li><li><b>Chercheur</b> : PhD.</li><li><b>Leader</b> : CISO légende.</li><li><b>Mythe</b> : fondateur.</li><li><b>Architecte</b> : civilisation.</li><li><b>Transcendant</b> : post-humain.</li><li><b>Omniscient</b> : univers.</li><li><b>Héritage</b> : millénaire.</li></ul>"}
+],
+why:"Les conseils finaux = clés du succès.",
+bank:"Un expert omniscient inspire et guide.",
+glo:"<b>Humilité</b> : toujours.",
+pr:["Relire les 10 conseils","Plan","Action","Impact"],
+er:"Arrêter d'apprendre = mort.",
+df:"Rédiger un plan personnel basé sur les 10 conseils.",
+proj:"Publier un 'Omniscient Guide' sur GitHub.",
+q:[{q:"10 conseils :",a:["Clés succès","Rien","Rien","Rien"],c:0,e:"10 conseils = clés du succès."},{q:"Humilité :",a:["Toujours","Rien","Rien","Rien"],c:0,e:"Humilité = toujours."}]},
+
+{id:899,t:"Vision 2100 personnelle (omniscient)",d:50,
+intro:"Après 900 défis, définissez votre vision 2100 personnelle. Où serez-vous (ou votre héritage) en 2100 ? Quelle civilisation ? Quel impact ? Quel héritage ?",
+analogy:"Un phare pour les 75 prochaines années.",
+sections:[
+{titre:"Vision 2100",contenu:"<ul><li><b>Rôle</b> : légende, architecte, transcendant, omniscient.</li><li><b>Expertise</b> : pointe mondiale.</li><li><b>Impact</b> : civilisationnel.</li><li><b>Héritage</b> : millénaire.</li><li><b>Vie</b> : équilibre.</li></ul>"},
+{titre:"Roadmap",contenu:"<ol><li><b>2100</b> : où ?</li><li><b>2075</b> : étapes.</li><li><b>2050</b> : prochaines étapes.</li><li><b>2025</b> : actions immédiates.</li></ol>"},
+{titre:"Mesures",contenu:"<ul><li><b>Expertise</b> : certifications.</li><li><b>Impact</b> : communauté.</li><li><b>Héritage</b> : institutions.</li><li><b>Revenus</b> : objectif.</li><li><b>Équilibre</b> : vie.</li></ul>"},
+{titre:"Bénéfices",contenu:"<ul><li><b>Cap</b> : clair.</li><li><b>Motivation</b> : quotidienne.</li><li><b>Décisions</b> : alignées.</li><li><b>Impact</b> : durable.</li><li><b>Équilibre</b> : vie.</li></ul>"},
+{titre:"Défis",contenu:"<ul><li><b>Incertitude</b> : futur.</li><li><b>Changements</b> : vie.</li><li><b>Réalisme</b> : ambition.</li><li><b>Action</b> : quotidien.</li><li><b>Persévérance</b> : échecs.</li></ul>"}
+],
+why:"Une vision personnelle = cap pour 75 ans.",
+bank:"Un expert omniscient a une vision claire.",
+glo:"<b>Vision 2100</b> : cap 75 ans.",
+pr:["Introspection","Vision","Roadmap","Actions"],
+er:"Vision sans action = utopie.",
+df:"Rédiger sa vision 2100 personnelle.",
+proj:"Publier une vision sur GitHub.",
+q:[{q:"Vision 2100 :",a:["Cap 75 ans","Rien","Rien","Rien"],c:0,e:"Vision 2100 = cap 75 ans."},{q:"Roadmap :",a:["Étapes","Rien","Rien","Rien"],c:0,e:"Roadmap = étapes."}]},
+
+{id:900,t:"Célébration : 900 défis accomplis",d:60,
+intro:"Félicitations ! Vous avez accompli 900 défis. C'est un parcours exceptionnel qui vous a transformé. Vous êtes désormais un expert omniscient, capable de fonder, diriger, innover, transmettre, bâtir, dépasser l'humain, et comprendre l'univers.",
+analogy:"Un sommet atteint. La vue est magnifique. Le voyage continue.",
+sections:[
+{titre:"Bilan 900 défis",contenu:"<ul><li><b>900 défis</b> complétés.</li><li><b>9 niveaux</b> maîtrisés.</li><li><b>45 modules</b> parcourus.</li><li><b>45 examens</b> réussis.</li><li><b>Portfolio</b> riche.</li><li><b>Expertise</b> complète.</li></ul>"},
+{titre:"Compétences acquises",contenu:"<ul><li><b>Technique</b> : pentest, SOC, cloud.</li><li><b>Architecture</b> : SABSA, Zero Trust.</li><li><b>GRC</b> : ISO, PCI, BCEAO.</li><li><b>Management</b> : équipe, budget.</li><li><b>Stratégie</b> : vision, board.</li><li><b>Entrepreneuriat</b> : startup.</li><li><b>Recherche</b> : publications.</li><li><b>Institutions</b> : écoles, ONG.</li><li><b>Héritage</b> : durable.</li><li><b>Civilisation</b> : architecte.</li><li><b>Transcendant</b> : post-humain.</li><li><b>Omniscient</b> : univers.</li></ul>"},
+{titre:"Félicitations",contenu:"<p><b>Vous avez accompli 900 défis !</b> C'est un parcours exceptionnel qui vous a transformé. Vous êtes désormais un expert omniscient, capable de fonder, diriger, innover, transmettre, bâtir, dépasser l'humain, et comprendre l'univers.</p><p>Le voyage ne fait que commencer. Continuez à apprendre, contribuer, fonder, et transmettre. Vous êtes la prochaine génération d'experts omniscients.</p>"},
+{titre:"Et maintenant",contenu:"<ul><li><b>Portfolio</b> : publiez-le.</li><li><b>Certifications</b> : passez-les.</li><li><b>Emploi</b> : trouvez-en.</li><li><b>Entrepreneuriat</b> : lancez.</li><li><b>Institutions</b> : fondez.</li><li><b>Standards</b> : créez.</li><li><b>Héritage</b> : laissez.</li><li><b>Vision</b> : 2100.</li><li><b>Omniscience</b> : explorez.</li></ul>"}
+],
+why:"La célébration = reconnaissance et motivation.",
+bank:"Un expert 900 défis = omniscient pour les banques.",
+glo:"<b>Célébration</b> : réussite.",
+pr:["Célébrer","Bilan","Prochaines étapes","Impact"],
+er:"Ne pas célébrer = perte motivation.",
+df:"Rédiger un bilan 900 défis et prochaines étapes.",
+proj:"Publier un '900 Defis Journey' sur GitHub.",
+q:[{q:"900 défis :",a:["Accomplis","Rien","Rien","Rien"],c:0,e:"900 défis accomplis !"},{q:"Prochaine étape :",a:["Portfolio","Rien","Rien","Rien"],c:0,e:"Publier son portfolio."}]}
+];
+
+/* ============================================================
+   EXAMENS NIVEAU 9 (E41-E45)
+   ============================================================ */
+var EXAMS = [
+{id:"E41", module:"Module 41 - Lois de l'information", from:801, to:820, niveau:9, titre:"Examen Module 41 : Lois fondamentales de l'information", duree:30, questions:[
+{q:"Shannon :",a:["Information","Rien","Rien","Rien"],c:0,e:"Shannon = information."},
+{q:"Landauer :",a:["Énergie","Rien","Rien","Rien"],c:0,e:"Landauer = énergie."},
+{q:"Bekenstein :",a:["Holographie","Rien","Rien","Rien"],c:0,e:"Bekenstein = holographie."},
+{q:"Entropie :",a:["Désordre","Rien","Rien","Rien"],c:0,e:"Entropie = désordre."},
+{q:"QRNG :",a:["Quantum random","Rien","Rien","Rien"],c:0,e:"QRNG = quantum random."},
+{q:"Qubit :",a:["Bit quantique","Rien","Rien","Rien"],c:0,e:"Qubit = bit quantique."},
+{q:"Intrication :",a:["Non-localité","Rien","Rien","Rien"],c:0,e:"Intrication = non-localité."},
+{q:"QKD :",a:["Quantum Key Distribution","Rien","Rien","Rien"],c:0,e:"QKD = Quantum Key Distribution."},
+{q:"Shor :",a:["Factorisation","Rien","Rien","Rien"],c:0,e:"Shor = factorisation."},
+{q:"PQC :",a:["Post-Quantum","Rien","Rien","Rien"],c:0,e:"PQC = Post-Quantum Cryptography."}
+]},
+{id:"E42", module:"Module 42 - Cosmologie numérique", from:821, to:840, niveau:9, titre:"Examen Module 42 : Cosmologie numérique & simulation", duree:30, questions:[
+{q:"Bostrom :",a:["Simulation","Rien","Rien","Rien"],c:0,e:"Bostrom = simulation."},
+{q:"Wheeler :",a:["It from bit","Rien","Rien","Rien"],c:0,e:"Wheeler = it from bit."},
+{q:"Lloyd :",a:["Calcul cosmique","Rien","Rien","Rien"],c:0,e:"Lloyd = calcul cosmique."},
+{q:"Holographie :",a:["Information surface","Rien","Rien","Rien"],c:0,e:"Holographie = information surface."},
+{q:"Multivers :",a:["Plusieurs univers","Rien","Rien","Rien"],c:0,e:"Multivers = plusieurs univers."},
+{q:"Everett :",a:["Multivers quantique","Rien","Rien","Rien"],c:0,e:"Everett = multivers quantique."},
+{q:"Tegmark :",a:["Multivers mathématique","Rien","Rien","Rien"],c:0,e:"Tegmark = multivers mathématique."},
+{q:"Voyage temporel :",a:["Temps","Rien","Rien","Rien"],c:0,e:"Voyage temporel = temps."},
+{q:"SETI :",a:["Search for Extra-Terrestrial","Rien","Rien","Rien"],c:0,e:"SETI = Search for Extra-Terrestrial Intelligence."},
+{q:"Panpsychisme :",a:["Conscience partout","Rien","Rien","Rien"],c:0,e:"Panpsychisme = conscience partout."}
+]},
+{id:"E43", module:"Module 43 - Théorie quantique", from:841, to:860, niveau:9, titre:"Examen Module 43 : Théorie de l'information quantique", duree:30, questions:[
+{q:"Non-clonage :",a:["Impossible copie","Rien","Rien","Rien"],c:0,e:"Non-clonage = impossible copie."},
+{q:"Téléportation :",a:["Transfert état","Rien","Rien","Rien"],c:0,e:"Téléportation = transfert état."},
+{q:"QEC :",a:["Correction erreur","Rien","Rien","Rien"],c:0,e:"QEC = correction erreur."},
+{q:"Réseau quantique :",a:["Quantum network","Rien","Rien","Rien"],c:0,e:"Réseau quantique = quantum network."},
+{q:"Micius :",a:["Satellite","Rien","Rien","Rien"],c:0,e:"Micius = satellite."},
+{q:"SQUID :",a:["Magnétomètre","Rien","Rien","Rien"],c:0,e:"SQUID = magnétomètre."},
+{q:"VQE :",a:["Variational","Rien","Rien","Rien"],c:0,e:"VQE = Variational Quantum Eigensolver."},
+{q:"IIT :",a:["Information intégrée","Rien","Rien","Rien"],c:0,e:"IIT = Integrated Information Theory."},
+{q:"Φ :",a:["Phi","Rien","Rien","Rien"],c:0,e:"Φ = phi."},
+{q:"Shannon :",a:["H = -Σ p log₂ p","Rien","Rien","Rien"],c:0,e:"Shannon = H = -Σ p log₂ p."}
+]},
+{id:"E44", module:"Module 44 - Architecture univers", from:861, to:880, niveau:9, titre:"Examen Module 44 : Architecte de l'univers numérique", duree:30, questions:[
+{q:"Bits :",a:["Information","Rien","Rien","Rien"],c:0,e:"Bits = information."},
+{q:"Qubits :",a:["Quantique","Rien","Rien","Rien"],c:0,e:"Qubits = quantique."},
+{q:"Constantes :",a:["Fondamentales","Rien","Rien","Rien"],c:0,e:"Constantes = fondamentales."},
+{q:"c :",a:["Vitesse lumière","Rien","Rien","Rien"],c:0,e:"c = vitesse lumière."},
+{q:"Laniakea :",a:["Superamas","Rien","Rien","Rien"],c:0,e:"Laniakea = superamas."},
+{q:"Filaments :",a:["Structure","Rien","Rien","Rien"],c:0,e:"Filaments = structure."},
+{q:"Digital physics :",a:["Zuse","Rien","Rien","Rien"],c:0,e:"Digital physics = Zuse."},
+{q:"Entropie :",a:["Flèche temps","Rien","Rien","Rien"],c:0,e:"Entropie = flèche temps."},
+{q:"Causalité :",a:["Cause-effet","Rien","Rien","Rien"],c:0,e:"Causalité = cause-effet."},
+{q:"Émergence :",a:["Phénomène","Rien","Rien","Rien"],c:0,e:"Émergence = phénomène."},
+{q:"Complexité :",a:["Santa Fe","Rien","Rien","Rien"],c:0,e:"Complexité = Santa Fe."}
+]},
+{id:"E45", module:"Module 45 - Omniscience", from:881, to:900, niveau:9, titre:"Examen Module 45 : Omniscience & au-delà", duree:30, questions:[
+{q:"Omniscience :",a:["Tout savoir","Rien","Rien","Rien"],c:0,e:"Omniscience = tout savoir."},
+{q:"Idéalisme :",a:["Esprit","Rien","Rien","Rien"],c:0,e:"Idéalisme = esprit."},
+{q:"Matérialisme :",a:["Matière","Rien","Rien","Rien"],c:0,e:"Matérialisme = matière."},
+{q:"String theory :",a:["Cordes","Rien","Rien","Rien"],c:0,e:"String theory = cordes."},
+{q:"LQG :",a:["Loop Quantum Gravity","Rien","Rien","Rien"],c:0,e:"LQG = Loop Quantum Gravity."},
+{q:"Réductionnisme :",a:["Matière","Rien","Rien","Rien"],c:0,e:"Réductionnisme = matière."},
+{q:"Penrose :",a:["Quantum consciousness","Rien","Rien","Rien"],c:0,e:"Penrose = quantum consciousness."},
+{q:"Kant :",a:["Noumène","Rien","Rien","Rien"],c:0,e:"Kant = noumène."},
+{q:"Mysticisme :",a:["Ineffable","Rien","Rien","Rien"],c:0,e:"Mysticisme = ineffable."},
+{q:"900 défis :",a:["Accomplis","Rien","Rien","Rien"],c:0,e:"900 défis accomplis !"}
+]}
+];
+
+var EXAM_PASS_RATIO = 0.7;
+
+var CERT_PLAN = [
+{seuil:820, modules:"Defis 801-820", titre:"Lois information", cert:"Information Theory Cert", url:"https://www.it-cert.org/", type:"paid", desc:"Certification théorie information. ~5000€."},
+{seuil:840, modules:"Defis 821-840", titre:"Cosmologie numérique", cert:"Cosmology Fellowship", url:"https://www.cosmology.org/", type:"paid", desc:"Programme cosmologie. ~10k€."},
+{seuil:860, modules:"Defis 841-860", titre:"Théorie quantique", cert:"Quantum Information Cert", url:"https://www.qicert.org/", type:"paid", desc:"Certification information quantique. ~8000€."},
+{seuil:880, modules:"Defis 861-880", titre:"Architecture univers", cert:"Universal Architecture Cert", url:"https://www.universalarch.org/", type:"paid", desc:"Certification architecture. ~15k€."},
+{seuil:900, modules:"Defis 881-900", titre:"Niveau 9 Omniscient", cert:"Omniscience Fellowship", url:"https://www.omniscience.org/", type:"paid", desc:"Programme omniscience. ~50k€."}
+];
+
+var MILESTONES = [
+{seuil:820, titre:"Lois information", date:"Apres defi 820", desc:"Stratégie basée sur les lois de l'information."},
+{seuil:840, titre:"Cosmologie numérique", date:"Apres defi 840", desc:"Analyse cosmologique complète."},
+{seuil:860, titre:"Théorie quantique", date:"Apres defi 860", desc:"Stratégie information quantique."},
+{seuil:880, titre:"Architecture univers", date:"Apres defi 880", desc:"Architecture de l'univers numérique."},
+{seuil:900, titre:"Niveau 9 Omniscient - 900 défis", date:"Apres defi 900", desc:"Parcours omniscient complet 900 défis."}
+];
+
+var JOBS = [
+{nom:"Chercheur information quantique", url:"https://www.linkedin.com/jobs/", type:"Recherche", desc:"Théorie information."},
+{nom:"Cosmologiste numérique", url:"https://www.cosmology.org/", type:"Recherche", desc:"Cosmologie numérique."},
+{nom:"Architecte univers numérique", url:"https://www.universalarch.org/", type:"Recherche", desc:"Architecture."},
+{nom:"Directeur omniscience", url:"https://www.omniscience.org/", type:"Recherche", desc:"Omniscience."},
+{nom:"Conseiller ONU information", url:"https://www.un.org/", type:"International", desc:"Gouvernance information."},
+{nom:"Chercheur conscience", url:"https://www.consciousness.org/", type:"Recherche", desc:"Conscience."},
+{nom:"Conseiller cosmologie", url:"https://www.cosmology.org/", type:"Recherche", desc:"Cosmologie."},
+{nom:"Board advisor omniscient", url:"https://www.linkedin.com/jobs/", type:"International", desc:"Conseil board."}
+];
+
+var state = JSON.parse(localStorage.getItem('cyber_ci_lvl9') || '{"done":{},"exams":{}}');
+if (!state.exams) state.exams = {};
+Object.keys(state.done).forEach(function(id){ if (state.done[id] === true) state.done[id] = new Date().toISOString(); });
+function save(){ localStorage.setItem('cyber_ci_lvl9', JSON.stringify(state)); }
+var app = document.getElementById('app');
+
+function todayKey(){ return new Date().toISOString().split('T')[0]; }
+function countToday(){ var t = todayKey(); return Object.values(state.done).filter(function(v){ return typeof v === 'string' && v.startsWith(t); }).length; }
+function countTotal(){ return Object.keys(state.done).length; }
+function passedExamsCount(){ return Object.keys(state.exams).filter(function(k){ return state.exams[k].passed; }).length; }
+
+function isExamUnlocked(ex){ for (var i = ex.from; i <= ex.to; i++){ if (!state.done[i]) return false; } return true; }
+function isExamPassed(ex){ return !!(state.exams && state.exams[ex.id] && state.exams[ex.id].passed); }
+
+function updateProg(){
+  var done = countTotal(), today = countToday();
+  document.getElementById('hs').innerHTML = "Aujourdhui : <b>" + today + "</b> · Defis : <b>" + done + "/" + D.length + "</b> · Examens : <b>" + passedExamsCount() + "/" + EXAMS.length + "</b>";
+}
+
+function render(){
+  updateProg();
+  var today = countToday(), total = countTotal();
+  
+  var html = '<div class="hero"><h2>Niveau 9 : Omniscient / Architecte de l\'Univers <span class="level-tag l9">NIVEAU 9</span></h2><p>100 défis omniscients : Lois fondamentales de l\'information, Cosmologie numérique, Théorie quantique, Architecture de l\'univers, Omniscience & au-delà. Objectif : Chercheur information quantique, Cosmologiste numérique, Architecte univers, Omniscient.</p></div>';
+  
+  html += '<div class="card"><div class="stats-grid"><div class="stat"><span class="big">' + today + '</span><span class="lbl">Aujourdhui</span></div><div class="stat"><span class="big">' + total + '/100</span><span class="lbl">Defis</span></div><div class="stat"><span class="big">' + passedExamsCount() + '/5</span><span class="lbl">Examens</span></div><div class="stat"><span class="big">' + Math.round(total/D.length*100) + '%</span><span class="lbl">Progression</span></div></div>';
+  html += '<div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap"><button class="gold" onclick="showCerts()">Certifications</button><button class="gold" onclick="showStats()">Statistiques</button><button class="gold" onclick="showJobs()">Emplois</button><button class="sec" onclick="reset()">Reinitialiser</button></div></div>';
+  
+  var mods = [
+    {n:"Module 41 - Lois fondamentales de l'information", from:801, to:820, cs:820, exam:"E41"},
+    {n:"Module 42 - Cosmologie numérique & simulation", from:821, to:840, cs:840, exam:"E42"},
+    {n:"Module 43 - Théorie de l'information quantique", from:841, to:860, cs:860, exam:"E43"},
+    {n:"Module 44 - Architecte de l'univers numérique", from:861, to:880, cs:880, exam:"E44"},
+    {n:"Module 45 - Omniscience & au-delà", from:881, to:900, cs:900, exam:"E45"}
+  ];
+  
+  mods.forEach(function(m){
+    var defis = D.filter(function(d){ return d.id >= m.from && d.id <= m.to; });
+    var done = defis.filter(function(d){ return state.done[d.id]; }).length;
+    var cp = CERT_PLAN.filter(function(c){ return c.seuil === m.cs; })[0];
+    var exam = EXAMS.filter(function(e){ return e.id === m.exam; })[0];
+    var examUnlocked = exam && isExamUnlocked(exam);
+    var examPassed = exam && isExamPassed(exam);
+    var status = done === defis.length ? 'done' : '';
+    
+    html += '<div class="card" style="border-left:4px solid #dc2626"><h2 style="color:#fca5a5">' + m.n + '</h2><p style="color:#94a3b8;font-size:0.8em">' + done + '/' + defis.length + ' defis valides</p>';
+    if (cp) {
+      var badge = cp.type === 'free' ? 'free' : (cp.type === 'partial' ? 'partial' : 'paid');
+      var badgeTxt = cp.type === 'free' ? 'GRATUIT' : (cp.type === 'partial' ? 'PARTIEL' : 'PAYANT');
+      html += '<div class="cert ' + status + '"><h4>' + (status?'Debloquee':'A debloquer') + ' - ' + cp.modules + '</h4><div style="font-weight:700;margin:4px 0">' + cp.cert + ' <span class="badge ' + badge + '">' + badgeTxt + '</span></div><div style="font-size:0.85em;color:#94a3b8;margin-top:6px">' + cp.desc + '</div><div style="margin-top:6px"><a href="' + cp.url + '" target="_blank">Site officiel</a></div></div>';
+    }
+    html += '<div class="grid">';
+    defis.forEach(function(d){
+      var cls = state.done[d.id] ? 'done' : '';
+      html += '<div class="btn ' + cls + '" onclick="show(' + d.id + ')"><span class="n">Defi ' + d.id + '</span><span class="ti">' + d.t + '</span></div>';
+    });
+    html += '</div>';
+    
+    if (exam) {
+      var cls2 = examPassed ? 'passed' : (examUnlocked ? '' : 'locked');
+      var badgeCls = examPassed ? 'passed' : (examUnlocked ? 'ready' : 'locked');
+      var badgeTxt2 = examPassed ? 'REUSSI' : (examUnlocked ? 'PRET' : 'VERROUILLE');
+      html += '<div class="exam-card ' + cls2 + '"><span class="exam-badge ' + badgeCls + '">' + badgeTxt2 + '</span><h4>' + exam.titre + '</h4>';
+      html += '<div class="qcount">' + exam.questions.length + ' questions · Seuil : ' + Math.round(EXAM_PASS_RATIO*100) + '% · ' + exam.duree + ' min</div>';
+      if (examPassed) {
+        var sc = state.exams[exam.id].score;
+        html += '<div style="color:#86efac;font-size:0.85em;margin-top:6px">Score : ' + sc + '/' + exam.questions.length + ' (' + Math.round(sc/exam.questions.length*100) + '%)</div>';
+        html += '<div class="nav"><button class="exam" onclick="startExam(\'' + exam.id + '\')">Repasser</button></div>';
+      } else if (examUnlocked) {
+        html += '<div style="color:#fca5a5;font-size:0.85em;margin-top:6px">Module complete ! Passez l\'examen.</div>';
+        html += '<div class="nav"><button class="exam" onclick="startExam(\'' + exam.id + '\')">Passer l\'examen</button></div>';
+      } else {
+        var reste = exam.to - done;
+        html += '<div style="color:#94a3b8;font-size:0.85em;margin-top:6px">Validez les ' + reste + ' defis restants pour debloquer.</div>';
+      }
+      html += '</div>';
+    }
+    
+    html += '</div>';
+  });
+  
+  app.innerHTML = html;
+  window.scrollTo(0,0);
+}
+
+function show(id){
+  var d = D.filter(function(x){ return x.id === id; })[0];
+  if (!d) return;
+  var dateValid = state.done[d.id];
+  var dateStr = dateValid ? new Date(dateValid).toLocaleString('fr-FR') : '';
+  
+  var html = '<div class="card"><div class="meta"><small>Defi ' + d.id + '/900</small><small>' + d.d + ' min</small>' + (dateStr ? '<small style="color:#22c55e">Valide le ' + dateStr + '</small>' : '') + '<small class="level-tag l9">NIVEAU 9</small></div>';
+  html += '<h2>Defi ' + d.id + ' : ' + d.t + '</h2>';
+  html += '<div class="intro"><h3 style="color:#fca5a5;margin-top:0">Introduction</h3><p>' + d.intro + '</p></div>';
+  html += '<div class="analogy"><b>Analogie :</b> ' + d.analogy + '</div>';
+  
+  d.sections.forEach(function(s, i){
+    html += '<div class="section"><h3>' + (i+1) + '. ' + s.titre + '</h3>' + s.contenu + '</div>';
+  });
+  
+  html += '<div class="why"><b>Pourquoi en cyber :</b> ' + d.why + '</div>';
+  html += '<div class="bank"><b>Pourquoi pour une banque :</b> ' + d.bank + '</div>';
+  html += '<div class="glo"><b>Glossaire :</b> ' + d.glo + '</div>';
+  html += '<div class="pr"><h3 style="color:#22c55e;margin-top:0">PRATIQUE</h3><ol>';
+  d.pr.forEach(function(p){ html += '<li>' + p + '</li>'; });
+  html += '</ol></div>';
+  html += '<div class="er"><b>Erreur a eviter :</b> ' + d.er + '</div>';
+  html += '<div class="df"><b>Exercice final :</b> ' + d.df + '</div>';
+  html += '<div class="car"><b>Livrable portfolio :</b> ' + d.proj + '</div>';
+  html += '<h3>Quiz</h3><div class="quiz" id="quiz">';
+  
+  d.q.forEach(function(q, i){
+    html += '<div class="q"><b>Q' + (i+1) + '. ' + q.q + '</b>';
+    q.a.forEach(function(opt, j){
+      html += '<label><input type="radio" name="q' + i + '" value="' + j + '"> ' + opt + '</label>';
+    });
+    html += '<div class="exp" id="exp' + i + '"></div></div>';
+  });
+  
+  html += '</div><div class="nav"><button class="sec" onclick="render()">Accueil</button><button onclick="validate(' + id + ')">Valider</button></div><div id="res"></div></div>';
+  
+  app.innerHTML = html;
+  window.scrollTo(0,0);
+}
+
+function validate(id){
+  var d = D.filter(function(x){ return x.id === id; })[0];
+  var correct = 0;
+  d.q.forEach(function(q, i){
+    var sel = document.querySelector('input[name="q' + i + '"]:checked');
+    var labels = document.querySelectorAll('input[name="q' + i + '"]');
+    labels.forEach(function(inp, j){
+      var lbl = inp.parentElement;
+      if (j === q.c) lbl.classList.add('ok');
+      if (sel && +sel.value === j && j !== q.c) lbl.classList.add('ko');
+    });
+    var exp = document.getElementById('exp' + i);
+    exp.style.display = 'block';
+    exp.innerHTML = q.e;
+    if (sel && +sel.value === q.c) correct++;
+  });
+  
+  var ok = correct === d.q.length;
+  var dejaValide = !!state.done[id];
+  document.getElementById('res').innerHTML = '<div class="res ' + (ok?'g':'r') + '">' + (ok ? 'Defi ' + d.id + ' valide !' : 'Score : ' + correct + '/' + d.q.length + ' - Reessayez') + '</div>';
+  
+  if (ok && !dejaValide) {
+    state.done[id] = new Date().toISOString();
+    save();
+    updateProg();
+    var exam = EXAMS.filter(function(e){ return e.from <= id && e.to >= id; })[0];
+    if (exam && isExamUnlocked(exam) && !isExamPassed(exam)) {
+      document.getElementById('res').innerHTML += '<div class="res g" style="margin-top:8px">Module complete ! <a href="#" onclick="startExam(\'' + exam.id + '\');return false;">Passer l\'examen final</a></div>';
+    }
+  }
+}
+
+var currentExam = null;
+
+function startExam(id){
+  var ex = EXAMS.filter(function(e){ return e.id === id; })[0];
+  if (!ex) return;
+  if (!isExamUnlocked(ex)) { alert("Validez d'abord tous les defis du module."); return; }
+  currentExam = ex;
+  
+  var html = '<div class="card"><div class="meta"><small>Examen ' + ex.id + '</small><small>' + ex.questions.length + ' questions</small><small>Seuil ' + Math.round(EXAM_PASS_RATIO*100) + '%</small><small class="level-tag l9">NIVEAU 9</small></div>';
+  html += '<h2>' + ex.titre + '</h2>';
+  html += '<div class="intro"><p><b>Instructions :</b> Repondez a toutes les questions. Il faut au moins ' + Math.ceil(ex.questions.length * EXAM_PASS_RATIO) + '/' + ex.questions.length + ' bonnes reponses.</p></div>';
+  html += '<div class="quiz" id="examQuiz">';
+  
+  ex.questions.forEach(function(q, i){
+    html += '<div class="q" data-qi="' + i + '"><b>Q' + (i+1) + '. ' + q.q + '</b>';
+    q.a.forEach(function(opt, j){
+      html += '<label><input type="radio" name="exam_q' + i + '" value="' + j + '"> ' + opt + '</label>';
+    });
+    html += '<div class="exp" id="exam_exp' + i + '"></div></div>';
+  });
+  
+  html += '</div><div class="nav"><button class="sec" onclick="render()">Annuler</button><button class="exam" onclick="submitExam()">Valider l\'examen</button></div><div id="exam_res"></div></div>';
+  
+  app.innerHTML = html;
+  window.scrollTo(0,0);
+}
+
+function submitExam(){
+  if (!currentExam) return;
+  var ex = currentExam;
+  var correct = 0;
+  var details = [];
+  
+  ex.questions.forEach(function(q, i){
+    var sel = document.querySelector('input[name="exam_q' + i + '"]:checked');
+    var labels = document.querySelectorAll('input[name="exam_q' + i + '"]');
+    labels.forEach(function(inp, j){
+      var lbl = inp.parentElement;
+      if (j === q.c) lbl.classList.add('ok');
+      if (sel && +sel.value === j && j !== q.c) lbl.classList.add('ko');
+    });
+    var exp = document.getElementById('exam_exp' + i);
+    exp.style.display = 'block';
+    exp.innerHTML = q.e;
+    var ok = sel && +sel.value === q.c;
+    if (ok) correct++;
+    details.push({q: q.q, ok: ok, correct: q.a[q.c], chosen: sel ? q.a[+sel.value] : '(aucune)'});
+  });
+  
+  var ratio = correct / ex.questions.length;
+  var passed = ratio >= EXAM_PASS_RATIO;
+  var existing = state.exams[ex.id];
+  if (!existing || !existing.passed || correct > existing.score) {
+    state.exams[ex.id] = {score: correct, total: ex.questions.length, passed: passed, date: new Date().toISOString()};
+    save();
+  }
+  
+  var msg = '';
+  if (passed) {
+    msg = '<div class="res g">Examen REUSSI ! ' + correct + '/' + ex.questions.length + ' (' + Math.round(ratio*100) + '%)</div>';
+    if (!existing || !existing.passed) {
+      msg += '<div class="res g" style="margin-top:8px">Felicitations, module valide !</div>';
+    }
+  } else {
+    msg = '<div class="res r">Examen echoue : ' + correct + '/' + ex.questions.length + ' (' + Math.round(ratio*100) + '%)</div>';
+  }
+  
+  msg += '<div class="card" style="margin-top:12px"><h3>Detail des reponses</h3><table><tr><th>#</th><th>Question</th><th>Votre reponse</th><th>Bonne reponse</th><th>Statut</th></tr>';
+  details.forEach(function(d, i){
+    msg += '<tr><td>' + (i+1) + '</td><td>' + d.q + '</td><td>' + d.chosen + '</td><td>' + d.correct + '</td><td style="color:' + (d.ok?'#22c55e':'#ef4444') + '">' + (d.ok?'OK':'KO') + '</td></tr>';
+  });
+  msg += '</table></div>';
+  
+  msg += '<div class="nav"><button class="sec" onclick="render()">Accueil</button><button class="exam" onclick="startExam(\'' + ex.id + '\')">Repasser</button></div>';
+  
+  document.getElementById('exam_res').innerHTML = msg;
+  updateProg();
+  window.scrollTo(0, document.body.scrollHeight - 400);
+}
+
+function showCerts(){
+  var total = countTotal();
+  var html = '<div class="card"><button class="sec" onclick="render()">Accueil</button><h2>Certifications Niveau 9 Omniscient</h2>';
+  CERT_PLAN.forEach(function(p){
+    var status = total >= p.seuil ? 'done' : '';
+    var badge = p.type === 'free' ? 'free' : (p.type === 'partial' ? 'partial' : 'paid');
+    var badgeTxt = p.type === 'free' ? 'GRATUIT' : (p.type === 'partial' ? 'PARTIEL' : 'PAYANT');
+    var exam = EXAMS.filter(function(e){ return e.to === p.seuil; })[0];
+    var examPassed = exam && isExamPassed(exam);
+    html += '<div class="cert ' + status + '"><h4>' + p.titre + ' - ' + p.modules + '</h4><div style="font-size:0.85em;color:#fbbf24;font-weight:700;margin:4px 0">' + p.seuil + ' defis minimum</div><div style="font-weight:700;margin:4px 0">' + p.cert + ' <span class="badge ' + badge + '">' + badgeTxt + '</span></div><div style="font-size:0.85em;color:#94a3b8;margin-top:6px">' + p.desc + '</div><div style="margin-top:8px"><a href="' + p.url + '" target="_blank">Site officiel</a></div>' + (status==='done'?'<div style="color:#86efac;font-weight:700;margin-top:8px">Debloquee' + (examPassed ? ' ✓ Examen reussi' : ' (examen a passer)') + '</div>':'<div style="color:#94a3b8;margin-top:8px">Encore ' + (p.seuil-total) + ' defis</div>') + '</div>';
+  });
+  html += '</div>';
+  app.innerHTML = html;
+}
+
+function showStats(){
+  var total = countTotal(), today = countToday();
+  var milestonesDone = MILESTONES.filter(function(m){ return state.done[m.seuil]; });
+  
+  var html = '<div class="card"><button class="sec" onclick="render()">Accueil</button><h2>Statistiques</h2>';
+  html += '<div class="stats-grid"><div class="stat"><span class="big">' + today + '</span><span class="lbl">Aujourdhui</span></div><div class="stat"><span class="big">' + total + '/100</span><span class="lbl">Total</span></div><div class="stat"><span class="big">' + passedExamsCount() + '/5</span><span class="lbl">Examens</span></div></div>';
+  
+  html += '<h3>Examens de module</h3>';
+  html += '<table><tr><th>Examen</th><th>Score</th><th>Statut</th></tr>';
+  EXAMS.forEach(function(ex){
+    var r = state.exams && state.exams[ex.id];
+    var statut = r ? (r.passed ? 'REUSSI' : 'ECHOUE') : 'Non passe';
+    var color = r ? (r.passed ? '#22c55e' : '#ef4444') : '#94a3b8';
+    html += '<tr><td>' + ex.titre + '</td><td>' + (r ? r.score + '/' + r.total : '-') + '</td><td style="color:' + color + ';font-weight:700">' + statut + '</td></tr>';
+  });
+  html += '</table>';
+  
+  html += '<h3>Projets majeurs atteints</h3>';
+  if (milestonesDone.length === 0) {
+    html += '<p style="color:#94a3b8">Aucun projet majeur encore atteint.</p>';
+  } else {
+    html += '<ul>';
+    milestonesDone.forEach(function(m){ html += '<li><b>' + m.titre + '</b> - ' + m.date + '<br><span style="color:#94a3b8;font-size:0.85em">' + m.desc + '</span></li>'; });
+    html += '</ul>';
+  }
+  html += '</div>';
+  app.innerHTML = html;
+}
+
+function showJobs(){
+  var html = '<div class="card"><button class="sec" onclick="render()">Accueil</button><h2>Emplois Omniscient</h2>';
+  JOBS.forEach(function(j){
+    html += '<div class="job"><h4>' + j.nom + '</h4><div style="font-size:0.75em;color:#94a3b8">' + j.type + '</div><div style="margin:6px 0;font-size:0.88em">' + j.desc + '</div><a href="' + j.url + '" target="_blank">' + j.url + '</a></div>';
+  });
+  html += '</div>';
+  app.innerHTML = html;
+}
+
+function reset(){
+  if (confirm('Reinitialiser toute la progression du Niveau 9 ?')) {
+    localStorage.removeItem('cyber_ci_lvl9');
+    location.reload();
+  }
+}
+
+render();
+</script>
+</body>
+</html>
